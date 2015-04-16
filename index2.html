@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel=stylesheet type="text/css">
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<meta property="qc:admins" content="45541563376522226375" />
+<title>sk家居网</title>
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/61/3la47mrn/jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	var sWidth = $("#focus").width(); //»ñÈ¡½¹µãÍ¼µÄ¿í¶È£¨ÏÔÊ¾Ãæ»ý£©
+	var len = $("#focus ul li").length; //»ñÈ¡½¹µãÍ¼¸öÊý
+	var index = 0;
+	var picTimer;
+	
+	//ÒÔÏÂ´úÂëÌí¼ÓÊý×Ö°´Å¥ºÍ°´Å¥ºóµÄ°ëÍ¸Ã÷³¤Ìõ
+	var btn = "<div class='btnBg'></div><div class='btn'>";
+	for(var i=0; i < len; i++) {
+		btn += "<span>" + (i+1) + "</span>";
+	}
+	btn += "</div>"
+	$("#focus").append(btn);
+	$("#focus .btnBg").css("opacity",0.5);
+	
+	//ÎªÊý×Ö°´Å¥Ìí¼ÓÊó±ê»¬ÈëÊÂ¼þ£¬ÒÔÏÔÊ¾ÏàÓ¦µÄÄÚÈÝ
+	$("#focus .btn span").mouseenter(function() {
+		index = $("#focus .btn span").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+	
+	//±¾ÀýÎª×óÓÒ¹ö¶¯£¬¼´ËùÓÐliÔªËØ¶¼ÊÇÔÚÍ¬Ò»ÅÅÏò×ó¸¡¶¯£¬ËùÒÔÕâÀïÐèÒª¼ÆËã³öÍâÎ§ulÔªËØµÄ¿í¶È
+	$("#focus ul").css("width",sWidth * (len + 1));
+	
+	//Êó±ê»¬ÈëÄ³liÖÐµÄÄ³divÀï£¬µ÷ÕûÆäÍ¬±²divÔªËØµÄÍ¸Ã÷¶È£¬ÓÉÓÚliµÄ±³¾°ÎªºÚÉ«£¬ËùÒÔ»áÓÐ±ä°µµÄÐ§¹û
+	$("#focus ul li div").hover(function() {
+		$(this).siblings().css("opacity",0.7);
+	},function() {
+		$("#focus ul li div").css("opacity",1);
+	});
+	
+	//Êó±ê»¬ÉÏ½¹µãÍ¼Ê±Í£Ö¹×Ô¶¯²¥·Å£¬»¬³öÊ±¿ªÊ¼×Ô¶¯²¥·Å
+	$("#focus").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			if(index == len) { //Èç¹ûË÷ÒýÖµµÈÓÚliÔªËØ¸öÊý£¬ËµÃ÷×îºóÒ»ÕÅÍ¼²¥·ÅÍê±Ï£¬½ÓÏÂÀ´ÒªÏÔÊ¾µÚÒ»ÕÅÍ¼£¬¼´µ÷ÓÃshowFirPic()£¬È»ºó½«Ë÷ÒýÖµÇåÁã
+				showFirPic();
+				index = 0;
+			} else { //Èç¹ûË÷ÒýÖµ²»µÈÓÚliÔªËØ¸öÊý£¬°´ÆÕÍ¨×´Ì¬ÇÐ»»£¬µ÷ÓÃshowPics()
+				showPics(index);
+			}
+			index++;
+		},3000); //´Ë3000´ú±í×Ô¶¯²¥·ÅµÄ¼ä¸ô£¬µ¥Î»£ººÁÃë
+	}).trigger("mouseleave");
+	
+	//ÏÔÊ¾Í¼Æ¬º¯Êý£¬¸ù¾Ý½ÓÊÕµÄindexÖµÏÔÊ¾ÏàÓ¦µÄÄÚÈÝ
+	function showPics(index) { //ÆÕÍ¨ÇÐ»»
+		var nowLeft = -index*sWidth; //¸ù¾ÝindexÖµ¼ÆËãulÔªËØµÄleftÖµ
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},500); //Í¨¹ýanimate()µ÷ÕûulÔªËØ¹ö¶¯µ½¼ÆËã³öµÄposition
+		$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Îªµ±Ç°µÄ°´Å¥ÇÐ»»µ½Ñ¡ÖÐµÄÐ§¹û
+	}
+	
+	function showFirPic() { //×îºóÒ»ÕÅÍ¼×Ô¶¯ÇÐ»»µ½µÚÒ»ÕÅÍ¼Ê±×¨ÓÃ
+		$("#focus ul").append($("#focus ul li:first").clone());
+		var nowLeft = -len*sWidth; //Í¨¹ýliÔªËØ¸öÊý¼ÆËãulÔªËØµÄleftÖµ£¬Ò²¾ÍÊÇ×îºóÒ»¸öliÔªËØµÄÓÒ±ß
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},500,function() {
+			//Í¨¹ýcallback£¬ÔÚ¶¯»­½áÊøºó°ÑulÔªËØÖØÐÂ¶¨Î»µ½Æðµã£¬È»ºóÉ¾³ý×îºóÒ»¸ö¸´ÖÆ¹ýÈ¥µÄÔªËØ
+			$("#focus ul").css("left","0");
+			$("#focus ul li:last").remove();
+		}); 
+		$("#focus .btn span").removeClass("on").eq(0).addClass("on"); //ÎªµÚÒ»¸ö°´Å¥Ìí¼ÓÑ¡ÖÐµÄÐ§¹û
+	}
+});
+
+</script>
+	
+<script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/61/3la47mrn/jquery.js"></script>
+	
+<script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/61/3la47mrn/jquery.js"></script>
+<script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/61/3la47mrn/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css"><style type="text/css">
+#d83 { }
+
+#kk { font-size: 16px; line-height: normal; color: #FF0000; border-style: none; }
+</style>
+
+</head>
+
+
+<body id="03" >
+<div id="ding"></div>
+
+<div id="dd">
+
+<div id="ddd"></div>
+<div id="dddd">
+  <div align="right"></div>
+</div>
+
+
+
+
+</div>
+
+
+<div id="d1" >
+<div id="o1"><img src="images/3.png" width="127" height="59" /></div>
+<div id="oo1"><img src="images/b.jpg" width="191" height="59" /></div>
+<div id="oo3">
+    <img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" />
+<img src="images/000000000000000000000000000000000000000000000000.gif" width="62" height="56" align="right" /></div>
+<a name="top" id="top"></a></div>
+
+<div id="header1" >
+
+<div id="header" >
+  
+
+  <ul id="nav" name="nav" > 
+<li><a href="index.html">HOME</a> 
+   
+</li> 
+<li><a href="http://www.divcss5.com/rumen/">个性装饰</a> 
+    <ul> 
+    <li><a href="#">窗帘</a></li> 
+    <li><a href="#">地毯</a></li> 
+    <li><a href="#">壁饰</a></li> 
+    <li><a href="#">装饰画</a></li> 
+    <li><a href="#">工艺品</a></li> 
+     
+    </ul> 
+</li> 
+<li><a href="http://www.divcss5.com/rumen/">雅致家具</a> 
+    <ul> 
+    <li><a href="#">沙发</a></li> 
+    <li><a href="#">茶几</a></li> 
+    <li><a href="#">电视柜</a></li> 
+    <li><a href="#">餐桌</a></li> 
+    <li><a href="#">椅/凳</a></li> 
+     <li><a href="#">床</a></li> 
+    <li><a href="#">书柜</a></li> 
+    </ul> 
+</li> 
+<li><a href="http://www.divcss5.com/html/">时尚摆件</a> 
+    <ul> 
+    <li><a href="#">收纳盒</a></li> 
+    <li><a href="#">果盘</a></li> 
+    <li><a href="#">花器</a></li> 
+    <li><a href="#">相框</a></li> 
+     <li><a href="#">烛台</a></li> 
+    <li><a href="#">卫浴</a></li> 
+    <li><a href="#">雕塑</a></li> 
+    </ul> 
+</li> 
+
+ 
+<li><a href="#">创意灯饰</a>
+    <ul> 
+    <li><a href="#">镜前灯</a></li>
+    
+    <li><a href="#">圆筒灯</a></li> 
+    <li><a href="#">吊灯</a></li> 
+    <li><a href="#">顶灯</a></li> 
+     <li><a href="#">台灯</a></li> 
+    <li><a href="#">壁灯</a></li> 
+    <li><a href="#">落地灯</a></li> 
+      <li><a href="#">花园灯</a></li> 
+    <li><a href="#">布艺灯</a></li> 
+    <li><a href="#">复古灯</a></li> 
+     
+    </ul> 
+</li> 
+<li><a href="#">田园花卉</a>
+    <ul> 
+    <li><a href="#">时尚DIY</a></li>
+    <li><a href="#">水培</a></li> 
+    <li><a href="#">盆栽</a></li> 
+    <li><a href="#">假花</a></li> 
+    <li><a href="#">花架</a></li> 
+    <li><a href="#">藤艺</a></li> 
+     
+    </ul> 
+</li>
+<li><a href="#">欧美单品</a>
+    <ul> 
+    <li><a href="#">展示空间</a></li> 
+    <li><a href="#">推荐新品</a></li> 
+   
+    </ul> 
+</li>  
+<li><a href="#">日韩乐趣</a>
+    <ul> 
+    <li><a href="#">趣味性</a></li>
+   <li><a href="#">展示空间</a></li> 
+    <li><a href="#">推荐新品</a></li>  
+
+    </ul> 
+</li> 
+
+<li><a href="#">港台风</a>
+    <ul> 
+    <li><a href="#">diy</a></li>
+ <li><a href="#">展示空间</a></li> 
+    <li><a href="#">推荐新品</a></li> 
+  
+    </ul> 
+</li> 
+<li><a href="#">美文享</a>
+   
+</li> 
+<li><a href="http://shop110272517.taobao.com/?spm=a230r.7195193.1997079397.1.56Dhas" target="_blank">乐活每天</a> 
+    <ul> 
+    <li><a href="http://shop110272517.taobao.com/?spm=a230r.7195193.1997079397.1.56Dhas"target="_blank">我的淘宝</a></li> 
+   
+    
+  
+    </ul> 
+</li> 
+<li><a href="http://weibo.com/u/1757085861"target="_blank">茫茫米呀</a> 
+   
+</li> 
+<li><a href="http://www.52rzb.com/forum.php/"target="_blank">BBS论坛</a> 
+  
+    
+  
+  </ul></li>
+  
+  </ul>
+ 
+
+
+
+
+
+
+</div>
+</div>
+
+<div id="ma1">
+<div id="main">
+
+
+  <div align="center"><div class="wrapper" >
+    <div id="focus" >
+      <ul>
+			
+			
+			<li>
+				<div style="left:0; top:0; width:1050px; height:400px;"><img src="images/10501.png"  alt="2011ÌÔ±¦ÉÌ³Ç×îÐÂ¶à¸ñ½¹µãÍ¼" /></a></div>
+			</li>
+			
+			
+			
+			<li>
+				<div style="left:0; top:0; width:608px; height:400px;"><a href="#"><img src="images/608.png" alt="2011ÌÔ±¦ÉÌ³Ç×îÐÂ¶à¸ñ½¹µãÍ¼" /></a></div>
+				<div style="right:0; top:0; width:442px; height:400px;"><a href="#"><img src="images/442.png" alt="54173BLOG½¹µãÍ¼ÌØÐ§" /></a></div>
+
+
+			</li>
+			
+			<li>
+				<div style="left:0; top:0; width:1050px; height:400px;"><a href="#"><img src="images/10502.png" alt="2011ÌÔ±¦ÉÌ³Ç×îÐÂ¶à¸ñ½¹µãÍ¼" /></a></div>
+			</li>
+		</ul>
+	</div>
+	<p>&nbsp;</p>
+  </div><!-- wrapper end --></div>
+</div>
+
+
+
+
+<div align="center"></div>
+</div>
+</div>
+
+<div id="d2"></div>
+<div id="footer"><div id="demo0"> 
+  <div id="indemo0"> 
+      <div id="demo10">
+        <div align="center"><a href="#"><img src="images/tu1.jpg" width="86" height="128"  border="0" /></a>
+          <a href="#"><img src="images/tu3.jpg" width="86" height="128"  border="0" /></a>
+          <a href="#"><img src="images/tu4.jpg" width="86" height="128"  border="0" /></a>
+          
+          
+          <a href="#"><img src="images/tu8.jpg" width="110" height="128" border="0" /></a>
+          <a href="#"><img src="images/tu9.jpg" width="105" height="128" border="0" /></a>
+        
+          <a href="#"><img src="images/tu5.jpg" width="97" height="128"  border="0" /></a>
+          
+          
+          <a href="#"><img src="images/tu7.jpg" width="127" height="128" border="0" /></a>
+          
+          
+          <a href="#"><img src="images/tu2.jpg" width="204" height="128" border="0" /></a>
+          <a href="#"><img src="images/tu6.jpg" width="169" height="128" border="0" /></a>
+            <a href="#"><img src="images/tu10.jpg" width="98" height="128" border="0" /></a>
+          
+        </div>
+      </div> 
+      <div id="demo20"></div> 
+  </div> 
+</div>
+  <div align="center">
+    <script language="javascript"> 
+<!-- 
+var speed0=20; //数字越大速度越慢 
+var tabb=document.getElementById("demo0"); 
+var tabb1=document.getElementById("demo10"); 
+var tabb2=document.getElementById("demo20"); 
+tabb2.innerHTML=tabb1.innerHTML+tabb1.innerHTML; 
+function Marquee2(){
+  if(tabb2.offsetWidth-tabb.scrollLeft<=0) 
+  tabb.scrollLeft-=tabb1.offsetWidth;
+  else{ 
+  tabb.scrollLeft++; 
+  } 
+} 
+var MyMar2=setInterval(Marquee2,speed0); 
+tabb.onmouseover=function(){clearInterval(MyMar2)}; 
+tabb.onmouseout=function(){MyMar2=setInterval(Marquee2,speed0)}; 
+--> 
+  </script>
+  </div>
+  <div id="ding3"></div>
+ 
+  <form id="form1" name="form1" enctype="multipart/form-data" method="post" action="">
+    <label for="fileField"></label>
+  </form>
+</div>
+
+
+
+<div id="d8">
+<div id="y1"><span id="y11">SOFT OUTFIT STYLE</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;软装风格</div>
+<div id="y2"></div>
+<div id="y3"><span id="y11">THE LEATEST HOT</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最新热点</div>
+</div>
+<div id="d82">
+<div id="n1"><img src="images/g.jpg" width="283" height="7" /></div>
+<div id="n2"></div>
+<div id="n3"><img src="images/g.jpg" width="283" height="7" /></div>
+</div>
+
+
+
+</div>
+<div class="btn" id="d81">
+<div id="u1">  <td width="400" height="315" align="left" valign="top" id="bk-1"><p><img src="images/f.jpg" alt="" /width="157" height="323" style="float:left;" /><span class="aaa"><br />
+       <p>
+           <ul style="padding-top: 10px; padding-left: 5px;">
+      <li>1.如何运用轻装饰打造简约风格。</li>
+        <li>2.合理的运用灯光照明与室内环境的关系塑造一个有情调空间。</li>
+        <li>3.处女座最适合的简约风格。</li>
+    </ul>
+  <span >
+
+    </span> <ul style="padding-top: 50px; padding-left: 5px;">
+        <li>1.粉红和粉蓝都是小女生的颜色,加上可爱的卡通画，小女生可是小清醒的主导。</li>
+        <li>2.自然简朴的田园风小清新帮你大众,让人置身于世外桃源的绿色空间。</li>
+        <li>3.拥有软妹子的几项本领便可实现。</li>
+  </ul><span>
+</span><span ></span>
+    <ul style="padding-top: 40px; padding-left: 5px;">
+        <li>1.高雅而和谐是古典风格的代名词。</li>
+        <li>2.新古典主义流行于社会上流阶层,受过欧式教育,对欧陆情愫情有独钟的成功人士的选择。</li>
+        <li>3.律师最钟情的古典风。</li>
+    </ul>
+</td></div>
+<div id="u2"><img src="images/5.png" width="308" height="330" /></div>
+<div id="u3" style="padding-top: 25px; height: 305px;"><span class="fx1" >◆</span> 从星座研究喜爱怎样的软装风格，貌似处女座任何风格都可驾驭，这 是为什么呢?<br />
+      <span class="fx1">◆</span> 家的幸福定义是什么？软装设计能为家带来什么呢？<br />
+      <span class="fx1">◆</span> 关于的一个女设计师从苦逼民工进化成资深软装设计师的经历。<br />
+      <span class="fx1">◆</span> 工装转软装看似很容易，实则尚浅，知名软装设计师Molika替你解开其中的奥秘所在。<br />
+  <span class="fx1">◆</span> 软装设计在现代为何越来越受推崇？<br />
+  <span class="fx1">◆</span> 不是所有土豪都爱欧式风格，但为何大部分都是，你想知道吗？<br />
+  <span class="fx1">◆</span> 每个人都可以打造成为一名软装设计师，你是否具备这项本领呢？<br />
+    <span class="fx1">◆</span> 不努力的人生是无趣味的，好的想法从行动开始。<br />
+  <span class="fx1">◆</span> 合理运用软装搭配、陈设给空间一面新镜子。<br />
+
+
+  <span class="fx1">◆</span> 国外有名软装设计师网站值得借鉴。</span><br />
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div id="d84"><div align="right"><a href="#top" class="kk"><span id="kk">Top&nbsp;&nbsp;</span></a></div>
+<div id="d9">
+  
+ 
+  <div id="d99">
+    <div id="f9"> 
+  <p>&nbsp;</p>
+  <p>
+    <EMBED src="1.mp3" width="56" height="60" autostart="bool" loop="n" controls="console/smallconsole/playbutton/" align="LEFT">    </p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;&nbsp;<br />
+&nbsp;    Music ❤ </p>
+</div>
+<div id="g9">
+ <ul>
+<li><a href="@#"><center><strong>sk理念</strong></center></a></li>
+<li><a href="#">最新资讯</a></li>
+<li><a href="#">联系我们</a></li>
+<li><a href="#">更多服务</a></li>
+</ul>
+
+ <ul>
+<li><a href="@#"><strong>国外网站</strong></a></li>
+<li><a href="#">平面设计</a></li>
+<li><a href="#"><center>交互设计</center></a></li>
+<li><a href="#"><center>室内设计</center></a></li>
+</ul>
+
+ <ul>
+<li><a href="http://www.cnsc8.com/" target="_blank"><center>素材吧</center></a></li>
+<li><a href="http://www.sccnn.com/"target="_blank">素材中国</a></li>
+<li><a href="http://www.nipic.com/"target="_blank"><center>昵图网</center></a></li>
+<li><a href="http://www.lanrentuku.com/"target="_blank">懒人图库</a></li>
+</ul>
+</div>
+<div id="h9">   <img src="images/00.0.gif" width="300" height="169" /></div>
+
+
+</div>
+</div>
+</body>
+</html>
