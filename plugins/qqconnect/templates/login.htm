@@ -1,0 +1,33 @@
+{template header}
+
+$ucsynlogin
+<script type="text/javascript" reload="1">
+	{if $message}
+	connect_switch(2);
+	display('layer_creg');
+	display('layer_cmessage');
+{if $message == 2}
+$('cmessageleft1').innerHTML = '<p>{lang qqconnect:connect_register_bind_need_inactive}</p>';
+$('cmessageright1').innerHTML = '<a href="memcp.php">{lang user_center}</a>';
+setTimeout("window.location.href='memcp.php'", $mrefreshtime);
+{elseif $message == 1}
+{if $groupid == 8}
+$('cmessageleft1').innerHTML = '<p>{lang qqconnect:connect_register_bind_need_inactive}</p>';
+$('cmessageright1').innerHTML = '<a href="memcp.php">{lang user_center}</a>';
+setTimeout("window.location.href='memcp.php'", $mrefreshtime);
+{else}
+$('cmessageleft1').innerHTML = '<p> {lang qqconnect:connect_register_bind_success} </p>';
+$('cmessageright1').innerHTML = '<a href="javascript:;" onclick="location.href=\'{$referer}\'">{lang login_refresh}</a>';
+setTimeout('location.href=\'{$referer}\'', $mrefreshtime);
+{/if}
+{if $_DCACHE['settings']['frameon'] && $_DCOOKIE['frameon'] == 'yes'}
+if(top != self) {
+	parent.leftmenu.location.reload();
+}
+{/if}
+{/if}
+{/if}
+</script>
+
+{eval updatesession();}
+{template footer}

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=$charset" />
+		<title>$navtitle $bbname $seotitle - Powered by Discuz!</title>
+		$seohead
+		<meta name="keywords" content="{$metakeywords}$seokeywords" />
+		<meta name="description" content="$metadescription $bbname $seodescription - Discuz! Board" />
+		<meta name="generator" content="Discuz! $version" />
+		<meta name="author" content="Discuz! Team and Comsenz UI Team" />
+		<meta name="copyright" content="2001-2009 Comsenz Inc." />
+		<meta name="MSSmartTagsPreventParsing" content="True" />
+		<meta http-equiv="MSThemeCompatible" content="Yes" />
+		<meta http-equiv="x-ua-compatible" content="ie=7" />
+		<link rel="stylesheet" href="plugins/search/misc/form.css" type="text/css" media="all" />
+		<script language="javascript" text="text/javascript">
+			window.onload = function() {
+				var x = document.xform;
+				x.q.onfocus = function () { 
+					if (this.value == this.title) {
+						this.value = '';
+						this.style.color = '#888';
+					}
+				};
+				x.q.onblur = function() {
+					if (this.value == '') {
+						this.value = this.title;
+						this.style.color = '#aaa';
+					}
+				};
+				x.onsubmit = function() {
+					if (this.q.value == this.q.title || this.q.value == '') {
+						alert(this.q.title);
+						this.q.focus();
+						return false;
+					}
+				};
+				x.q.onblur();
+			};
+		</script>
+		
+	</head>
+	<body class="mode-$mode">
+		<form name="xform" action="my_search.php" method="get" target="_blank" class="search_form_wrapper">
+			<div id="search_form">
+				<div id="search_form_inner">
+					<p id="search_form_q">
+						<input type="text" class="text" name="q" value="" autocomplete="off" title="{lang search:form_tips}" />
+						<input type="image" name="submit" class="image" src="plugins/search/misc/api_form_submit.gif" valign="center" />
+																<input type="hidden" name="source" value="api-form" />
+					</p>
+					<p id="hotWords">
+					<strong>{lang search:hotsearch}:</strong>
+						<!--{loop $hotwords $hotword}-->
+						<a href="my_search.php?q=$hotword&source=api-form-index" target="_blank">$hotword</a>
+						<!--{/loop}-->
+					</p>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

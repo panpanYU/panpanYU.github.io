@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ padding:0px;margin:0px; font-family:Microsoft Yahei;}
+.clear{ clear:both;}
+a{ text-decoration:none;}
+a:hover{ text-decoration:none;}
+ul li{ list-style:none;}
+img{ border:none;}
+.w1000{ width:1000px; margin:0 auto;}
+body{ background:url(bg.jpg) 0 0 repeat;}
+/*Common*/
+#deanheader{ background:#F9F9F9; width:100%; height:50px;border-bottom:3px solid #43BAFE;}
+.deantop{ width:155px; margin:0 auto; height:60px; float:left; padding-top:6px;}
+	.deantop img{ width:155px; height:38px;}
+		.deanbottom{ width:1000px; height:47px; background:#F9F9F9; }
+			.deannav{ width:400px; float:left; height:50px; line-height:50px; }
+				.deannav ul li{ float:left; height:50px; line-height:50px;}
+				.deannav ul li:hover{ background:#43BAFE; }
+					.deannav ul li a{ padding-left:15px; padding-right:15px; color:#888; font-size:16px; display:block;}
+					.deannav ul li a:hover{ color:#FFF;}
+			.deansearch{ float:right; width:250px; padding-top:10px;}
+				.deannav ul li.a a{ background:#43BAFE;}
+
+/*wp*/
+
+/*wpheader*/
+.deanwph{ margin-top:10px;}	
+	.deanwphl{ width:760px; float:left;}
+	.deanwphll{ width:453px; float:left;}
+		.deanpic1{ position:relative; width:453px; height:300px; z-index:0; cursor:pointer;}
+		.deanpic11{ position:absolute; width:453px; height:300px; left:0px; top:0px; z-index:1;}
+		.deanpic111{ position:absolute; width:433px; height:170px; left:0px; top:0px; z-index:2; background:#000; opacity:0.6; color:#FFF; font-size:22px; padding-left:20px; padding-top:130px;}
+	.deanwphllb{ margin-top:6px;}
+	.deanpic2{ float:left; width:147px;}
+		.deanpic2{ position:relative; width:147px; height:147px; z-index:0;cursor:pointer;}
+		.deanpic22{ position:absolute; width:147px; height:147px; left:0px; top:0px; z-index:1;}
+		.deanpic222{ position:absolute; width:127px; height:82px; left:0px; top:0px; z-index:2; background:#000; opacity:0.6; color:#FFF; font-size:17px; padding-left:20px; padding-top:65px;}
+	.deanpic3{ float:left;width:300px; margin-left:6px;}
+		.deanpic3{ position:relative; width:300px; height:147px; z-index:0;cursor:pointer;}
+		.deanpic33{ position:absolute; width:300px; height:147px; left:0px; top:0px; z-index:1;}
+		.deanpic333{ position:absolute; width:280px; height:82px; left:0px; top:0px; z-index:2; background:#000; opacity:0.6; color:#FFF; font-size:17px; padding-left:20px; padding-top:65px;}
+	.deanwphlr{ width:300px; float:left; }
+		.deanpic4{ width:300px; margin-left:6px;}
+			.deanpic4 ul li{ margin-top:6px; float:left;width:147px; height:147px;cursor:pointer;}
+			.deanpic4 ul li.li1{ background:#E5663F;}
+			.deanpic4 ul li.li2{background:#7FB129;}
+			.deanpic4 ul li.li3{background:#CF1E1E;}
+			.deanpic4 ul li.li4{background:#289BC5;}
+			.deanpic4 ul li.li1:hover{ background:#FA5623;}
+			.deanpic4 ul li.li2:hover{ background:#8FD01E;}
+			.deanpic4 ul li.li3:hover{ background:#EE0F10;}
+			.deanpic4 ul li.li4:hover{ background:#0FAEE8;}
+				.deantxth1{ text-align:center; margin-top:40px; color:#FFF; font-size:22px;}
+				.deantxth2{text-align:center; margin-top:10px; color:#FFF; font-size:16px;}
+	.deanwphr{width:230px; float:right;}
+	.deanwphrt{ position:relative;}
+	.deanpicc{ position:absolute; right:-200px; top:20px;}
+		.deanwphrt ul li.dd{ float:left;width: 115px;height: 95px;position: relative;zoom: 1;}
+		.deanwphrt ul li.dd a:hover{background: #43bafe;color: #fff;text-decoration: none;border-color: #43bafe;}
+		.deanwphrt ul li.dd a{line-height: 24px;background: #ebf8ff;border: 1px solid #afe2ff;display: block;text-align: center;font-size: 20px;color: #43bafe;height: 93px; width:113px;margin-left: -1px;}
+		.deanwphrt ul li.dd i{width: 40px;height: 37px;margin: 15px auto 3px auto;display: block;cursor: pointer;background-position: 0 -38px; background:url(gico.png) no-repeat;}
+		.deanwphrt ul li.tt{ float:left;width: 115px;height: 95px;position: relative;zoom: 1;}
+		.deanwphrt ul li.tt a{line-height: 24px;background: #ebf8ff;border: 1px solid #afe2ff;display: block;text-align: center;font-size: 20px;color: #43bafe;height: 93px;margin-left: -2px;}
+		.deanwphrt ul li.tt i{width: 40px;height: 37px;margin: 15px auto 3px auto;display: block;cursor: pointer;background:url(asa.png) no-repeat;}
+		.deanwphrt ul li.tt a:hover{background: #43bafe;color: #fff;text-decoration: none;border-color: #43bafe;}
+	.deanwphrb{ width:230px; height:352px; margin-top:6px;}
+		.deanwphrbt{padding-top:10px; color:#43BAFE; font-size:18px;}
+			.deanwphrbb{}
+				.deanwphrbb ul li{ width:240px;padding-top:12px; height:70px;}
+				.deanwphrbbcl{ float:left;}
+					.deanwphrbbcl img{ width:70px; height:60px;}
+				.deanwphrbbcr{ float:left; padding-left:10px; width:150px;}
+					.deanwphrbbcr p.ff a{ color:#333;}
+					.deanwphrbbcr p.ff a:hover{ color:#43BAFE;}
+					.deanwphrbbcr p.gg{color:#888; font-size:12px; line-height:23px;}
+/*sheying*/
+.deanjc{ margin-top:35px;}
+	.deanjct{ width:1000px; height:30px; border-bottom:2px solid #43BAFE;}
+		.deanjctl span{ font-size:19px;}
+		.deanjctl{ float:left; width:130px;}
+			.deanjctr{ float:right; width:670px;}
+				.deanjctr ul li{ float:left; padding-left:10px; padding-right:10px; padding-top:4px;}
+				.deanjctr ul li a{ font-size:14px;}
+		.deanjcb{ width:1100px; margin-top:20px;}
+			.deanjcb ul li{ width:230px; height:130px; float:left; padding-right:27px;}
+				.deanjcbcp{ float:left; width:91px; height:91px;}
+				.deanjcbcp img{width:91px; height:91px;}
+				.deanjcbct{ float:left; padding-left:10px;width:128px;}
+					.deanjcbctt{ width:128px;}
+					.deanjcbctt a{ font-size:14px; color:#333; font-weight:700;}
+					.deanjcbctb{ font-size:12px; color:#888; padding-top:6px;}
+					
+/*大秀场*/
+.deanshow{ }
+.deanshowc{ margin-top:10px; width:1100px;}
+.deanshowcc{ width:192px; height:192px; overflow:hidden;}
+	.deanshowc ul li{ width:192px; height:192px; float:left; margin-right:10px; margin-top:10px; overflow:hidden;}
+	.deanspic{ position:relative; width:192px; height:192px; z-index:0;overflow:hidden;}
+	.deanspic1{ position:absolute; width:192px; height:192px; left:0px; top:0px; z-index:1;}
+	.deanspic1 img{ width:192px; height:192px;}
+	.deanspic2{ position:absolute; width:172px; height:112px; left:0px; top:192px; z-index:2; background:#FFF; opacity:0.8; color:#888; font-size:16px; padding-left:20px; padding-top:80px;}
+	.deanspic2 p{ padding-left:40px; color:#888; font-weight:700;}
+	.deanspic2 p a{color:#000;}
+	.deanspica{ font-size:32px; text-align:center; padding-top:24px; width:192px; padding-bottom:10px; line-height:50px; font-family:Verdana, Geneva, sans-serif;}
+	.deanarrow{ background:url(bg-class.png) 0 0 no-repeat; height:20px; margin-left:30px;}
+	.deanspics{ width:192px; height:192px; background:#888; color:#FFF;}
+	.deanspics:hover{ background:#4CB3F4;}
+	.deanspicq{ padding-left:10px;}
+		.deanspicq a span{ color:#eee; font-size:12px; padding-left:8px;}
+		.deanxx{ margin-left:40px;}
+	.deanxx span.vv{ background:url(icons.png) left center no-repeat; height:10px; padding-left:18px; font-size:12px;}	
+	.deanxx span.ll{ background:url(icon11.png) left center no-repeat;height:10px; padding-left:18px; font-size:12px;}
+		
+/*论坛*/
+.deanlt{ margin-top:30px;}
+
+/*影展*/
+.deanyzc{ width:1000px;}
+/*焦点图*/
+				.slide{float:left; width:1000px; height:420px; overflow:hidden; margin-top:15px;}
+				.slide .left, .slide .right{ float:left;  width:750px;position:relative;} 
+				.slide .left img{ width:750px; height:420px;}
+				.slide #indexRight { float:right; width:255px;  height:420px;}
+				.slide #indexRight li.on{background:#eee url(img-icon-7x16.png) left center no-repeat;}
+				 #indexRight span.aa{ padding-top:10px; height:25px;display:block;}
+				 #indexRight a span.aa{ font-size:16px; color:#333; padding-top:10px;display:block; width:230px;}
+				 #indexRight a span.bb{ font-size:12px;color:#888; line-height:29px; height:29px; display:block; width:230px;}
+				#indexRight a{ display:block; width:250px; height:105px; padding-left:15px; cursor:pointer;}
+				.slide .swcont{position:absolute;top:0;left:0;width:750px;height:420px;display:none;}
+				.slide .right div{position:absolute;top:0; left:5px;width:250px;height:105px;z-index:-1; background:#4CB3F4;}
+	.deanyzcb{ margin-top:20px; width:1100px;}	
+		.deanyzcb ul li{ float:left; margin-right:18px; width:185px; }	
+			.deanrpict{ position:relative; width:185px; height:185px; z-index:0;}
+				.deanrpic2{ position:absolute; width:185px; height:25px; left:0px; top:160px; background:#333; text-align:center; line-height:25px; opacity:0.8; color:#FFF; font-size:14px;}
+				.deanrpic1 img{ width:185px; height:185px;}
+				.deanrpicbtitle{ text-align:center; line-height:25px; height:25px; }
+					.deanrpicbtitle a{ font-size:16px;color:#333;}
+					.deanrpicbtxt{ font-size:12px; color:#888; text-align:center; }
+/*器材*/
+.deanqc{ margin-top:40px;}
+	.deanqcc{ margin-top:15px; }
+		.deanqccl{ width:333px; float:left;}
+		.deanqcclt{ padding-bottom:10px;}
+			.deanqccltt{ padding-top:10px; padding-bottom:10px;}
+				.deanqcclttc ul li{ height:25px; line-height:25px; background:url(circle-1-1.png) left center no-repeat; padding-left:15px; width:289px;}
+						.deanqcclttc ul li a{ font-size:14px; color:#888;}
+						.deanqcclttc ul li a:hover{ color:#43BAFE;}
+		.deanqccr{ width:333px; float:right;}
+			.deanqccrtt img{ width:110px; height:35px;}
+			.deanqccrtb{}
+				.deanqccrtb ul li{ float:left; padding-right:10px;}
+					.deanqccrtb ul li a img{ width:90px; height:75px;}
+.ads{ margin-bottom:20px; margin-top:20px; width:1000px; height:90px;}
+
+/*会员*/
+/* thumb */
+.deanmunber{ width:1000px; margin-top:15px;}
+ul.thumb{padding:5px;width:1000px;margin:15px auto 0 auto;}
+ul.thumb li{margin:0;padding:19px;float:left;position:relative;width:87px;height:87px;}
+ul.thumb li img{width:100px;height:100px;border:1px solid #ddd;padding:5px;background:#f0f0f0;position:absolute;left:0;top:0;-ms-interpolation-mode:bicubic;}
+ul.thumb li img.hover{margin-top:15px;background:url(images/thumb_bg.png) no-repeat center center;border:none;}
+.title{position:absolute;width:198px;height:35px;margin:0;font-weight:900;background:url(images/blue.png) no-repeat center center;padding:17px 0 0 0;text-align:center;color:#fff;}
+
+/*友联*/
+.deanylmore{ margin-top:15px;}
+	.deanylmore ul li{ float:left;  height:25px; line-height:25px; text-align:center; }
+		.deanylmore ul li a{ float:left; padding-left:10px; padding-right:10px; font-size:12px; color:#888; display:block; height:25px; white-space:nowrap;}
+		.deanylmore ul li a:hover{ background:#8ABAFE; color:#FFF;}
+		
+/*footer*/
+.deanfooter{ width:100%; height:250px; background:#FFF; border-top:3px solid #f60; margin-top:50px;}	
+.deanftl{ float:left; width:500px; margin-top:20px; height:60px;}
+.deanftr{ float:right; width:470px;}
+.deanftt{ padding-top:10px; width:500px;}
+	.deanftt ul li{ float:left; padding-right:4px;}
+	.deanftt ul li img{ width:30px; height:30px;}
+	.deanftrt{ padding-top:17px; color:#888; line-height:28px;}

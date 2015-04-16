@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[7.2]]></item>
+	<item id="Time"><![CDATA[2011-08-12 14:08]]></item>
+	<item id="From"><![CDATA[Discuz!¹Ù·½ÌåÑéÕ¾ (http://demo.discuz.net/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[QQ»¥Áª]]></item>
+			<item id="identifier"><![CDATA[qqconnect]]></item>
+			<item id="description"><![CDATA[ÎÞÐè¼Ç×¡±¾Õ¾µÄÕÊºÅºÍÃÜÂë£¬ËæÊ±Ê¹ÓÃQQÕÊºÅÃÜºÍÂëÇáËÉµÇÂ¼]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[qqconnect/]]></item>
+			<item id="copyright"><![CDATA[Comsenz Inc.]]></item>
+			<item id="version"><![CDATA[1.1.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[spacecp]]></item>
+					<item id="menu"><![CDATA[QQ°ó¶¨]]></item>
+					<item id="type"><![CDATA[10]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[connect]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[7.2]]></item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="connect_get_request_token_failed"><![CDATA[±§Ç¸£¬µ±Ç°´æÔÚÍøÂçÎÊÌâ»ò·þÎñÆ÷·±Ã¦£¬ÇëÄúÉÔºòÔÙÊÔ¡£]]></item>
+				<item id="connect_get_access_token_failed"><![CDATA[±§Ç¸£¬µ±Ç°´æÔÚÍøÂçÎÊÌâ»ò·þÎñÆ÷·±Ã¦£¬ÇëÄúÉÔºòÔÙÊÔ¡£]]></item>
+				<item id="connect_invalid_params"><![CDATA[²ÎÊýÎÞÐ§£¬ÇëÖØÐÂµÇÂ¼¡£]]></item>
+				<item id="connect_uin_in_blacklist"><![CDATA[±§Ç¸£¬´ËQQÕÊºÅÒÑ±»±¾Õ¾ÆÁ±Î£¬Äú¿ÉÒÔ<a href="{changeqqurl}">¸ü»»ÆäËûQQÕÊºÅµÇÂ¼</a>]]></item>
+				<item id="connect_register_bind_uin_already"><![CDATA[±§Ç¸£¬¸ÃQQÓÃ»§ÒÑ°ó¶¨ÁË±¾Õ¾µÄÁíÒ»¸öÓÃ»§£¬ÎÞ·¨ÔÙ´Î°ó¶¨]]></item>
+				<item id="connect_register_bind_success"><![CDATA[ÄúµÄÕÊºÅÓëQQÕÊºÅ°ó¶¨³É¹¦]]></item>
+				<item id="connect_config_unbind_success"><![CDATA[ÄúµÄÂÛÌ³ÕÊºÅºÍQQÕÊºÅ½â³ý°ó¶¨³É¹¦¡£]]></item>
+				<item id="connect_register_bind_already"><![CDATA[±§Ç¸£¬¸ÃÓÃ»§ÒÑ°ó¶¨¹ýÁíÒ»¸öQQÓÃ»§£¬ÎÞ·¨ÔÙ´Î°ó¶¨]]></item>
+				<item id="connect_register_uinlimit"><![CDATA[¶Ô²»Æð£¬Äú×¢²áµÄ±¾Õ¾ÕÊºÅÊýÁ¿ÒÑ³¬¹ý×î´óÏÞÖÆ]]></item>
+				<item id="connect_setting_allow"><![CDATA[¿ªÆôQQ×¢²á/°ó¶¨/µÇÂ¼·þÎñ]]></item>
+				<item id="connect_setting_allow_comment"><![CDATA[¿ªÆôºó£¬ÓÃ»§¿ÉÒÔÍ¨¹ýQQÕÊºÅµÇÂ¼Õ¾µã£¬ÒÔ¼°½øÐÐ¸ü¶àºÍQQÏà¹ØµÄ²Ù×÷]]></item>
+				<item id="setting_access_register_connect_uinlimit"><![CDATA[Í¬Ò»QQÕÊºÅ×î¶à¿É´´½¨ÂÛÌ³ÕÊºÅµÄ¸öÊý]]></item>
+				<item id="setting_access_register_connect_uinlimit_comment"><![CDATA[Ò»¸öQQÕÊºÅÎÞÂÛ°ó¶¨/½â°ó¶àÉÙ´Î£¬Í¨¹ý´ËQQÕÊºÅ×î¶à¿ÉÒÔ´´½¨ÂÛÌ³ÐÂÕÊºÅµÄ¸öÊý£¬0 »òÁô¿ÕÎª²»ÏÞÖÆ]]></item>
+				<item id="connect_api_ip"><![CDATA[QQ»¥Áª½Ó¿ÚIP]]></item>
+				<item id="connect_api_ip_comment"><![CDATA[ÈçÕ¾µã·þÎñÆ÷ÓÉÓÚDNS½âÎöÎÊÌâÎÞ·¨Á¬½Óµ½QQ»¥Áª½Ó¿Ú£¬Çë³¢ÊÔÌîÐ´IPµØÖ·£¬<a href="{getipurl}" target="_blank" style="color:blue;">»ñÈ¡IPµØÖ·</a>]]></item>
+				<item id="connect_appid"><![CDATA[Õ¾µãId]]></item>
+				<item id="connect_appid_comment"><![CDATA[Ã»ÓÐÕ¾µãIdºÍÕ¾µãKey£¿<a href="{applyappidurl}" target="_blank" style="color:blue;">µã»÷ÉêÇë</a>  <a href="{findappidurl}" target="_blank" style="color:blue;">ÕÒ»Ø</a>]]></item>
+				<item id="connect_appkey"><![CDATA[Õ¾µãKey]]></item>
+				<item id="connect_invalid_appid"><![CDATA[ÎÞÐ§µÄÕ¾µãId]]></item>
+				<item id="connect_invalid_appkey"><![CDATA[ÎÞÐ§µÄÕ¾µãKey]]></item>
+				<item id="connect_setting_update_succeed"><![CDATA[QQ»¥ÁªÉèÖÃ±£´æ³É¹¦]]></item>
+				<item id="connect_setting_save"><![CDATA[±£´æ]]></item>
+				<item id="connect_setting_save_succeed"><![CDATA[±£´æ³É¹¦]]></item>
+				<item id="connect_closed"><![CDATA[±§Ç¸£¬Õ¾³¤ÒÑ¹Ø±ÕQQ»¥Áª¹¦ÄÜ]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="connect_header_login"><![CDATA[QQµÇÂ¼]]></item>
+				<item id="connect_header_login_tip"><![CDATA[Ö»ÐèÒ»²½£¬¿ìËÙ¿ªÊ¼]]></item>
+				<item id="connect_config"><![CDATA[QQ°ó¶¨]]></item>
+				<item id="connect_config_bindinfo"><![CDATA[ÄúÒÑ½«±¾Õ¾ÕÊºÅ <strong>{$_DSESSION[discuz_user]}</strong> ÓëQQÕÊºÅ°ó¶¨]]></item>
+				<item id="connect_config_newpassword"><![CDATA[ÄúÄ¿Ç°Ê¹ÓÃµÄÊÇQQÕÊºÅ°ó¶¨±¾Õ¾£¬Äú¿ÉÒÔÔÚÕâÀïÉèÖÃ¶ÀÁ¢ÃÜÂë£¬Ö»ÓÐÉèÖÃÁË¶ÀÁ¢ÃÜÂëºó±¾Õ¾ÐèÒªÌîÐ´ÃÜÂëµÄÏàÓ¦¹¦ÄÜ²Å¿ÉÊ¹ÓÃ]]></item>
+				<item id="connect_config_unbind"><![CDATA[½â³ýÒÑ°ó¶¨ÕÊºÅ£¿]]></item>
+				<item id="connect_config_unbind_desc1"><![CDATA[Äúµ±Ç°ÊÇÊ¹ÓÃQQÕÊºÅ°ó¶¨µ½ {$bbname}]]></item>
+				<item id="connect_config_unbind_desc2"><![CDATA[ÎªÁËÄú¿ÉÒÔ¼ÌÐøÊ¹ÓÃ±¾Õ¾ÕÊºÅ <strong>{$_DSESSION[discuz_user]}</strong>£¬ÇëÉèÖÃ±¾Õ¾µÇÂ¼ÃÜÂë]]></item>
+				<item id="connect_config_unbind_desc3"><![CDATA[ÄúÈ·ÈÏÒª½â³ýÓë±¾Õ¾ÕÊºÅµÄ°ó¶¨¹ØÏµ£¿]]></item>
+				<item id="connect_config_new_password"><![CDATA[ÐÂÃÜÂë]]></item>
+				<item id="connect_config_new_password_confirm"><![CDATA[È·ÈÏÃÜÂë]]></item>
+				<item id="connect_config_password_comment"><![CDATA[µÇÂ¼±¾Õ¾Ê¹ÓÃ]]></item>
+				<item id="connect_config_bind_confirm"><![CDATA[È·ÈÏ½â³ý]]></item>
+				<item id="connect_config_bind"><![CDATA[µã»÷°´Å¥£¬Á¢¿Ì°ó¶¨QQÕÊºÅ]]></item>
+				<item id="connect_config_title"><![CDATA[Ê¹ÓÃQQÕÊºÅ°ó¶¨±¾Õ¾£¬Äú¿ÉÒÔ...]]></item>
+				<item id="connect_config_desc_title1"><![CDATA[ÓÃQQÕÊºÅÇáËÉµÇÂ¼]]></item>
+				<item id="connect_config_desc_content1"><![CDATA[ÎÞÐè¼Ç×¡±¾Õ¾µÄÕÊºÅºÍÃÜÂë£¬ËæÊ±Ê¹ÓÃQQÕÊºÅÃÜÂëÇáËÉµÇÂ¼]]></item>
+				<item id="connect_register_complete"><![CDATA[Ã»ÓÐ±¾Õ¾ÕÊºÅ£¿ÍêÉÆÒ»µãÐÅÏ¢£¬ÂíÉÏÎªÎÒ×¢²á]]></item>
+				<item id="connect_register_bind"><![CDATA[µÇÂ¼²¢ÓëQQÕÊºÅ°ó¶¨]]></item>
+				<item id="connect_register_has_id"><![CDATA[ÒÑÓÐ±¾Õ¾ÕÊºÅ£¿]]></item>
+				<item id="connect_register_new_username"><![CDATA[ÊäÈëÐÂÓÃ»§Ãû]]></item>
+				<item id="connect_register_used_usernames"><![CDATA[³£ÓÃÃû]]></item>
+				<item id="connect_register_available_usernames_count"><![CDATA[$available_username_count ¸ö¿ÉÓÃ]]></item>
+				<item id="connect_register_email"><![CDATA[ÓÊÏä]]></item>
+				<item id="connect_register_birthday"><![CDATA[ÉúÈÕ]]></item>
+				<item id="connect_register_sex"><![CDATA[ÐÔ±ð]]></item>
+				<item id="connect_register_noid"><![CDATA[Ã»ÓÐÕÊºÅ£¿]]></item>
+				<item id="connect_register_new"><![CDATA[×¢²áÐÂÕÊºÅ]]></item>
+				<item id="connect_register_avatar"><![CDATA[Í·Ïñ]]></item>
+				<item id="connect_register_sex_male"><![CDATA[ÄÐ]]></item>
+				<item id="connect_register_sex_female"><![CDATA[Å®]]></item>
+				<item id="connect_register_sex_secret"><![CDATA[±£ÃÜ]]></item>
+				<item id="connect_register_public_email"><![CDATA[¹«¿ªÓÊÏäµØÖ·]]></item>
+				<item id="connect_register_use_qzone_avatar"><![CDATA[Ê¹ÓÃQQ¿Õ¼äÍ·Ïñ]]></item>
+				<item id="connect_register_agree"><![CDATA[Í¬Òâ·þÎñÌõ¿î]]></item>
+				<item id="connect_register_must_agree"><![CDATA[Äú±ØÐëÍ¬Òâ·þÎñÌõ¿îºó²ÅÄÜ×¢²á]]></item>
+				<item id="connect_register_finish"><![CDATA[Íê³É£¬¼ÌÐøä¯ÀÀ]]></item>
+				<item id="connect_register_tips"><![CDATA[ÄúµÄQQºÅ²»»áÏÔÊ¾¸ø±¾Õ¾ÈÎºÎÈË]]></item>
+				<item id="connect_register_bind_window_button"><![CDATA[°ó¶¨ÕÊºÅ]]></item>
+				<item id="connect_register_bind_title"><![CDATA[ÊäÈëÒÑÓÐµÄ±¾Õ¾ÕÊºÅ£¬½«ÓëÄúµÄQQÕÊºÅ½øÐÐ°ó¶¨]]></item>
+				<item id="connect_register_bind_success"><![CDATA[ÄúµÄÕÊºÅÓëQQÕÊºÅ°ó¶¨³É¹¦]]></item>
+				<item id="connect_register_bind_need_inactive"><![CDATA[ÄúµÄÕÊºÅ»¹Î´¼¤»î£¬ÇëÏÈ¼¤»îºóÔÙ°ó¶¨QQÕÊºÅ]]></item>
+				<item id="connect_uin_limit"><![CDATA[Äú×¢²áµÄ±¾Õ¾ÕÊºÅÊýÁ¿ÒÑ³¬¹ý×î´óÏÞÖÆ<br />Çë<a href="javascript:;" onclick="connect_switch(1)" class="xi2">µã»÷ÕâÀï</a>°ó¶¨ÒÑÓÐ±¾Õ¾ÕÊºÅ]]></item>
+				<item id="connect_viewthread_share_title"><![CDATA[·ÖÏíµ½]]></item>
+				<item id="connect_viewthread_share_to_qzone"><![CDATA[QQ¿Õ¼ä]]></item>
+				<item id="connect_viewthread_share_to_weibo"><![CDATA[ÌÚÑ¶Î¢²©]]></item>
+				<item id="connect_viewthread_share_to_pengyou"><![CDATA[ÌÚÑ¶ÅóÓÑ]]></item>
+				<item id="connect_member_register_tip"><![CDATA[Äú½«Ê¹ÓÃQQÕÊºÅ<span id="connect_nick_register"></span>×¢²á±¾Õ¾<br /><a href="{$connect_setting[change_qq_url]}">¸ü»»QQÕÊºÅ</a>£¿]]></item>
+				<item id="connect_member_loginbind_tip"><![CDATA[Äú½«Ê¹ÓÃQQÕÊºÅ<span id="connect_nick_logging"></span>°ó¶¨±¾Õ¾ÕÊºÅ<br /><a href="{$connect_setting[change_qq_url]}">¸ü»»QQÕÊºÅ</a>£¿]]></item>
+				<item id="connect_setting_save"><![CDATA[±£´æ]]></item>
+			</item>
+			<item id="installlang">
+				<item id="install_title"><![CDATA[QQ»¥Áª | °²×°Ïòµ¼]]></item>
+				<item id="install_comment"><![CDATA[<br /><p>¸ÐÐ»Äú°²×°QQ»¥Áª·þÎñ²å¼þ¡£</p><br /><p>
+								  ±¾²å¼þ½«ÎªÍøÕ¾Ìá¹©QQÕÊºÅµÇÂ¼·þÎñ£¬½µµÍÍøÕ¾ÓÃ»§×¢²á¡¢µÇÂ¼µÄÃÅ¼÷¡£</p><br />]]></item>
+				<item id="next_step"><![CDATA[ÏÂÒ»²½]]></item>
+				<item id="connect_api_ip"><![CDATA[<br />ÉèÖÃQQ»¥Áª½Ó¿ÚIP]]></item>
+				<item id="connect_install_succeed"><![CDATA[°²×°³É¹¦]]></item>
+				<item id="connect_install_apply_comment"><![CDATA[Ö»²î1²½£¬ÂíÉÏÊ¹ÓÃQQ»¥Áª]]></item>
+				<item id="connect_install_apply"><![CDATA[ÉêÇëÕ¾µãIdºÍÕ¾µãKey]]></item>
+				<item id="connect_api_ip_comment"><![CDATA[ÄúµÄÕ¾µã·þÎñÆ÷ÓÉÓÚDNS½âÎöÎÊÌâÎÞ·¨Á¬½Óµ½QQ»¥Áª½Ó¿Ú£¬ÇëÌîÐ´IPµØÖ·£¬<a href="{getipurl}" target="_blank" style="color:blue;">»ñÈ¡IPµØÖ·</a>]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+	</item>
+</root>

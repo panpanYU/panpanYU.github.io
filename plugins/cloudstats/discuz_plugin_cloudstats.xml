@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[7.2]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[ÌÚÑ¶·ÖÎö]]></item>
+			<item id="identifier"><![CDATA[cloudstats]]></item>
+			<item id="description"><![CDATA[ÌÚÑ¶·ÖÎö(Tencent Analysis)£¬¼ò³ÆTA£¬ÊÇÈ«ÇòÊ×¿î×¨ÓÃÓÚÉçÇøµÄÍ³¼Æ·ÖÎöÏµÍ³¡£TA¹¹½¨ÓÚÌÚÑ¶Ç¿´óµÄÊý¾Ý·ÖÎöºÍ¼ÆËãÄÜÁ¦»ù´¡Ö®ÉÏ£¬²»½öÄÜ¹»Í³¼ÆÍøÕ¾µÄÇ÷ÊÆÊý¾Ý£¬»¹ÄÜ¹»Í³¼ÆÈÈÃÅ°æ¿é¡¢ÈÈÃÅÖ÷Ìâ¡¢ÊµÊ±Êý¾Ý¡¢ÍøÕ¾²âËÙ¡¢»áÔ±²ÎÓë¶ÈºÍ·Ã¿Í»­ÏñµÈÇé¿ö£¬ÄÜ¹»¸ü¼ÓÓÐÐ§¡¢ÓÐÕë¶ÔÐÔµÄ¶ÔÉçÇøÊý¾Ý½øÐÐ¶àÎ¬¶È¡¢¶à²ãÃæµÄÈ«Ãæ·ÖÎö£¬ÎªÕ¾³¤ÔËÓªÌá¹©Ç¿ÓÐÁ¦µÄÊý¾Ý²Î¿¼¡£]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[cloudstats/]]></item>
+			<item id="copyright"><![CDATA[Comsenz Inc.]]></item>
+			<item id="version"><![CDATA[1.0.1]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[setting]]></item>
+					<item id="type"><![CDATA[4]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[cloudstats]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[7.2]]></item>
+	</item>
+</root>

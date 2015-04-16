@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[7.2]]></item>
+	<item id="Time"><![CDATA[2010-04-15 11:20]]></item>
+	<item id="From"><![CDATA[Discuz! Board (http://127.0.0.1/manyou_branch_v20091104/discuz/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[×ÝºáËÑË÷]]></item>
+			<item id="identifier"><![CDATA[search]]></item>
+			<item id="description"><![CDATA[ Ìá¹©¾«×¼µÄÈ«ÎÄËÑË÷£¬½ÚÊ¡ÍøÕ¾·þÎñÆ÷×ÊÔ´£¬ÌáÉýÓÃ»§·ÃÎÊÉî¶È¡£
+
+				Çëµã»÷"ÔÆÆ½Ì¨" / "×ÝºáËÑË÷"½øÐÐ¹ÜÀíÓëÉèÖÃ¡£ ]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[search/]]></item>
+			<item id="copyright"><![CDATA[Comsenz Inc.]]></item>
+			<item id="version"><![CDATA[2.0.0]]></item>
+			<item id="__modules">
+				<item id="1">
+					<item id="name"><![CDATA[plugin]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[7.2]]></item>
+		<item id="hooks">
+			<item id="0">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[admin_forum_log]]></item>
+				<item id="description"><![CDATA[¼ÇÂ¼¹ÜÀíÔ±°æ¿é²Ù×÷ÈÕÖ¾]]></item>
+				<item id="code"><![CDATA[if ($operation == 'delete' && $ajax) {
+	$fId = intval($_GET['fid']);
+	//	$total = intval($total);
+	$pp = intval($pp);
+	//	$currow = intval($currow);
+	//$query   = $db->query("SELECT tid, fid FROM {$tablepre}threads WHERE fid='$fId' LIMIT $pp");
+	include_once DISCUZ_ROOT . './plugins/search/common.php';
+	plugin_search_delete_forum($fId);
+
+} else if($operation == 'merge' ) {
+	if (submitcheck('mergesubmit') && $source != $target) {
+		$db->query("REPLACE INTO {$tablepre}threadlogs (fid, otherid, action, dateline) VALUES ('$source', '$target', 'mergeforum', '$timestamp')");
+	}
+}]]></item>
+			</item>
+			<item id="1">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[admin_thread_log]]></item>
+				<item id="description"><![CDATA[¼ÇÂ¼¹ÜÀíÔ±Ö÷Ìâ²Ù×÷ÈÕÖ¾]]></item>
+				<item id="code"><![CDATA[$logtids = $_POST['tidarray'];
+if ($operation && $logtids) {
+	$operations  = array('stick', 'adddigest', 'addstatus', 'delete', 'moveforum', 'movetype', 'movesort', 'deleteattach', 'forumstick');
+	$operations  = array('stick' => 'sticky',
+						 'adddigest' => 'digest',
+						 'moveforum' => 'move',
+						 'delete' => 'delete',
+						 'deleteattach' => 'attachment',
+						);
+	$logtoforum = 0;
+
+	if (array_key_exists($operation, $operations)) {
+		if ($operation == 'moveforum') {
+			$logtoforum = $_POST['toforum'];
+		}
+		$act = $operations[$operation];
+		$_logtids = implode(",", $logtids);
+		$query = $db->query("SELECT tid, fid, authorid FROM {$tablepre}threads WHERE tid IN($_logtids)");
+		$logsql = '';
+		$_threads = array();
+		while($thread = $db->fetch_array($query)) {
+			$logsql .= "('" . $thread['tid'] . "', '" . $thread['fid'] . "', '$logtoforum', 'thread[authorid]', '$act', '$timestamp'), ";
+			$_threads[$thread[tid]] = array('tid' => $thread['tid'],
+											'fid' => $thread['fid'],
+											);
+		}
+
+		if ($operation == 'delete') {
+			include_once DISCUZ_ROOT . './plugins/search/common.php';
+			plugin_search_delete_threads($_threads);
+		} elseif ($logsql) {
+			$db->query("REPLACE INTO {$tablepre}threadlogs (tid, fid, otherid, uid, action, dateline) VALUES " . trim($logsql, ', '));
+		}
+	}
+}]]></item>
+			</item>
+			<item id="2">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[cron_thread_log]]></item>
+				<item id="description"><![CDATA[¼ÇÂ¼cron²Ù×÷Ö÷ÌâµÄÈÕÖ¾]]></item>
+				<item id="code"><![CDATA[if ($actionarray) {
+	$tIds = array();
+	foreach ($actionarray as $act => $ids) {
+	        foreach($ids as $id) {
+		    $tIds[$id] = $id;
+		 }
+	}
+	$logsql = "SELECT tid, fid, authorid FROM {$tablepre}threads WHERE tid IN (" . join(', ', $tIds) . ')';
+	$query = $db->query($logsql);
+	$logsql = "REPLACE INTO {$tablepre}threadlogs (tid, fid, uid, action, dateline) VALUES ";
+	while($thread = $db->fetch_array($query)) {
+		$logsql .= '(' . $thread['tid'] . ', ' . $thread['fid'] . ", '$thread[authorid]', 'cron', '$timestamp'), ";
+	}
+	$db->query(trim($logsql, ', '));
+}]]></item>
+			</item>
+			<item id="3">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[admin_member_log]]></item>
+				<item id="description"><![CDATA[¹ÜÀíºóÌ¨É¾³ý¡¢½ûÖ¹¡¢±à¼­ÓÃ»§Ê±É¾³ýÌû×ÓµÄÈÕÖ¾]]></item>
+				<item id="code"><![CDATA[if ($operation == 'ban') {
+	if (submitcheck('bansubmit')) {
+		if($adminid == 1) {
+			if ($uid || $username) {
+				$member = $db->fetch_first("SELECT m.*, mf.*, u.type AS grouptype, u.allowsigbbcode, u.allowsigimgcode FROM {$tablepre}members m
+										   LEFT JOIN {$tablepre}memberfields mf ON mf.uid=m.uid
+										   LEFT JOIN {$tablepre}usergroups u ON u.groupid=m.groupid
+										   WHERE ".($uid ? "m.uid='$uid'" : "m.username='$username'"));
+			}
+			if ($member['uid'] && isset($bannew)) {
+				include_once DISCUZ_ROOT . './plugins/search/common.php';
+				$expiry = 0;
+				if ($banexpirynew) {
+					$expiry = time() + 86400 * $banexpirynew;
+				}
+				plugin_search_ban_user($member['uid'], $expiry, $delpost, $bannew ? false : true);
+			}
+		}
+	}
+} elseif ($operation == 'clean') {
+	if (submitcheck('submit', 1)) {
+		$uids = 0;
+		$extra = '';
+
+		if(empty($uidarray)) {
+			if (!$conditions) {
+				$conditions = 1;
+			}
+			$query = $db->query("SELECT uid, groupid, adminid FROM {$tablepre}members WHERE $conditions AND adminid<>1 AND groupid<>1");
+		} else {
+			$uids = is_array($uidarray) ? '\''.implode('\', \'', $uidarray).'\'' : '0';
+			$query = $db->query("SELECT uid, groupid, adminid FROM {$tablepre}members WHERE uid IN($uids) AND adminid<>1 AND groupid<>1");
+		}
+
+		$membernum = $db->num_rows($query);
+
+		$uids = $comma = '';
+		$uidsarr = array();
+		while($member = $db->fetch_array($query)) {
+			if($membernum < 2000 || !empty($uidarray)) {
+				$extra .= '<input type="hidden" name="uidarray[]" value="'.$member['uid'].'" />';
+			}
+			$uids .= $comma.$member['uid'];
+			$comma = ',';
+			$uidsarr[] = $member['uid'];
+		}
+		if ($membernum && $uids && $confirmed) {
+			include_once DISCUZ_ROOT . './plugins/search/common.php';
+			foreach($uidsarr as $uid) {
+				plugin_search_delete_user($uid, 0, $includepost);
+			}
+		}
+	}
+} elseif ($operation == 'group') {
+	if($uid || $username) {
+		$condition = !empty($uid) ? "m.uid='$uid'" : "m.username='$username'";
+	}
+	$member = $db->fetch_first("SELECT m.uid, m.username, m.adminid, m.groupid, m.groupexpiry, m.extgroupids, m.credits,
+		mf.groupterms, u.type AS grouptype, u.grouptitle, u.radminid
+		FROM {$tablepre}members m
+		LEFT JOIN {$tablepre}memberfields mf ON mf.uid=m.uid
+		LEFT JOIN {$tablepre}usergroups u ON u.groupid=m.groupid
+		WHERE $condition");
+	if ($member) {
+		if(submitcheck('editsubmit')) {
+			include_once DISCUZ_ROOT . './plugins/search/common.php';
+			$expiry = 0;
+			if ($expirydatenew) {
+				$expiry = strtotime($expirydatenew);
+			}
+			if ($groupidnew == 4 || $groupidnew == 5) {
+				plugin_search_ban_user($member['uid'], $expiry);
+			} elseif ($member['groupid'] == 4 || $member['groupid'] == 5) {
+				plugin_search_ban_user($member['uid'], $expiry, false, true);
+			}
+		}
+	}
+}]]></item>
+			</item>
+			<item id="4">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[admin_recyclebin_log]]></item>
+				<item id="description"><![CDATA[¹ÜÀíºóÌ¨»Ö¸´»ØÊÕÕ¾Ö÷ÌâÊ±²úÉúµÄÈÕÖ¾]]></item>
+				<item id="code"><![CDATA[if (!$operation) {
+	if(submitcheck('undelsubmit')) {
+		if ($threadlist) {
+			$tids = implode(',', $threadlist);
+			$sql = "REPLACE INTO {$tablepre}threadlogs (tid, fid, otherid, uid, action, dateline) VALUES ";
+			$query = $db->query("SELECT fid, tid, authorid FROM {$tablepre}threads WHERE tid IN ($tids)");
+			while($thread = $db->fetch_array($query)) {
+				$sql .= sprintf("('%d', '%d', '%d', '%d', 'restore', '%d'), ", $thread['tid'], $thread['fid'], 0, $thread['authorid'], $timestamp);
+			}
+			$sql = trim($sql, ', ');
+			$db->query($sql, 'UNBUFFERED');
+		}
+	}
+} elseif ($operation == 'search') {
+	if (submitcheck('rbsubmit')) {
+
+		$moderation = array('delete' => array(), 'undelete' => array(), 'ignore' => array());
+
+		if(is_array($mod)) {
+			foreach($mod as $tid => $action) {
+				$moderation[$action][] = intval($tid);
+			}
+		}
+
+		if ($moderation['undelete']) {
+			$tids = implode(',', $moderation['undelete']);
+			$sql = "REPLACE INTO {$tablepre}threadlogs (tid, fid, otherid, uid, action, dateline) VALUES ";
+			$query = $db->query("SELECT fid, tid, authorid  FROM {$tablepre}threads WHERE tid IN ($tid)");
+			while($thread = $db->fetch_array($query)) {
+				$sql .= sprintf("('%d', '%d', '%d', '%d', 'restore', '%d'), ", $thread['tid'], $thread['fid'], 0, $thread['authorid'], $timestamp);
+			}
+			$sql = trim($sql, ', ');
+			$db->query($sql, 'UNBUFFERED');
+		}
+	}
+}]]></item>
+			</item>
+			<item id="5">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[admin_moderate_log]]></item>
+				<item id="description"><![CDATA[¹ÜÀíºóÌ¨ÉóºËÌû×Ó²úÉúµÄÈÕÖ¾¼ÇÂ¼]]></item>
+				<item id="code"><![CDATA[if ($operation == 'threads') {
+	if (submitcheck('modsubmit')) {
+		$validates = $ignores = $recycles = $deletes = 0;
+		$validatedthreads = $pmlist = array();
+		$moderation = array('validate' => array(), 'delete' => array(), 'ignore' => array());
+
+		if(is_array($mod)) {
+			foreach($mod as $tid => $act) {
+				$moderation[$act][] = intval($tid);
+			}
+		}
+		if($moderation['validate']) {
+			$threads = array();
+			$validatetids = '\''.implode('\',\'', $moderation['validate']).'\'';
+			$query = $db->query("SELECT fid, tid, authorid FROM {$tablepre}threads WHERE tid IN ($validatetids)");
+			while($thread = $db->fetch_array($query)) {
+				$threads[] = array( 'fid' => $thread['fid'],
+									'tid' => $thread['tid'],
+									'authorid' => $thread['authorid'],
+								  );
+			}
+			if ($threads) {
+				$sql = "REPLACE INTO {$tablepre}threadlogs (tid, fid, otherid, uid, action, dateline) VALUES ";
+				foreach ($threads as $thread) {
+					$sql .= sprintf("('%d', '%d', '%d', '%d', 'validate', '%d'), ", $thread['tid'], $thread['fid'], 0, $thread['authorid'], $timestamp);
+				}
+				$sql = trim($sql, ', ');
+				$db->query($sql, 'UNBUFFERED');
+			}
+		}
+	}
+}
+
+if ($operation == 'replies') {
+	if (submitcheck('modsubmit')) {
+
+		$moderation = array('validate' => array(), 'delete' => array(), 'ignore' => array());
+		$pmlist = array();
+		$validates = $ignores = $deletes = 0;
+
+		if(is_array($mod)) {
+			foreach($mod as $pid => $act) {
+				$moderation[$act][] = intval($pid);
+			}
+		}
+		if($validatepids = implodeids($moderation['validate'])) {
+			$forums = $threads = $lastpost = $attachments = $pidarray = $authoridarray = array();
+			$query = $db->query("SELECT pid, tid, fid, authorid
+				FROM {$tablepre}posts
+				WHERE pid IN ($validatepids) AND first='0'");
+
+			$posts = array();
+			while($post = $db->fetch_array($query)) {
+				$posts[] = $post;
+			}
+
+			if ($posts) {
+				$sql = "REPLACE INTO {$tablepre}postlogs (pid, fid, tid, uid, action, dateline) VALUES ";
+				foreach ($posts as $post) {
+					$sql .= sprintf("('%d', '%d', '%d', '%d', 'validate', '%d'), ", $post['pid'], $post['fid'], $post['tid'], $post['authorid'], $timestamp);
+				}
+				$sql = trim($sql, ', ');
+				$db->query($sql, 'UNBUFFERED');
+			}
+		}
+	}
+}]]></item>
+			</item>
+			<item id="6">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[admin_prune_log]]></item>
+				<item id="description"><![CDATA[¹ÜÀíºóÌ¨ÅúÁ¿É¾ÌûÊ±µÄÈÕÖ¾]]></item>
+				<item id="code"><![CDATA[if (submitcheck('prunesubmit')) {
+
+	$_posts = $_posts = array();
+	$pids = authcode($pids, 'DECODE');
+	$pidsadd = $pids ? 'pid IN ('.$pids.')' : 'pid IN ('.implodeids($pidarray).')';
+
+	$query = $db->query("SELECT fid, tid, pid, first, authorid FROM {$tablepre}posts WHERE $pidsadd");
+	while($post = $db->fetch_array($query)) {
+		if($post['first']) {
+			$_threads[$post[tid]] = array('tid' => $post['tid'],
+										'fid' => $post['fid'],
+										);
+		} else {
+			$_posts[$post['pid']] = array('pid' => $post['pid'],
+										'fid' => $post['fid'],
+										'tid' => $post['tid'],
+										);
+		}
+	}
+	if ($_posts) {
+		include_once DISCUZ_ROOT . './plugins/search/common.php';
+		plugin_search_delete_posts($_posts);
+	}
+	if ($_threads) {
+		include_once DISCUZ_ROOT . './plugins/search/common.php';
+		plugin_search_delete_threads($_threads);
+	}
+}]]></item>
+			</item>
+			<item id="7">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[modcp_thread_log]]></item>
+				<item id="description"><![CDATA[°æÖ÷¹ÜÀíÃæ°åÖÐµÄ°æ¿éÖ÷Ìâ/Ìû×Ó¹ÜÀíÈÕÖ¾]]></item>
+				<item id="code"><![CDATA[if($op == 'posts') {
+    $error = 0;
+    if($do == 'delete' && submitcheck('deletesubmit')) {
+        if(!$allowmassprune) {
+            $error = 4;
+            return;
+        }
+
+        $tidsdelete = $pidsdelete = '0';
+        $prune = array();
+
+        if($pids = implodeids($delete)) {
+            $tidsdelete = $pidsdelete = '0';
+            $query = $db->query("SELECT fid, tid, pid, first, authorid FROM {$tablepre}posts WHERE pid IN ($pids) $fidadd");
+            while($post = $db->fetch_array($query)) {
+                if($post['first']) {
+                    $_threads[$post[tid]] = array('tid' => $post['tid'],
+                                                  'fid' => $post['fid'],
+                                                 );
+                } else {
+                    $_posts[$post['pid']] = array('pid' => $post['pid'],
+                                                  'fid' => $post['fid'],
+                                                  'tid' => $post['tid'],
+                                                 );
+                }
+            }
+            if ($_posts) {
+                include_once DISCUZ_ROOT . './plugins/search/common.php';
+                plugin_search_delete_posts($_posts);
+            }
+            if ($_threads) {
+                include_once DISCUZ_ROOT . './plugins/search/common.php';
+                plugin_search_delete_threads($_threads);
+            }
+        }
+    }
+}]]></item>
+			</item>
+			<item id="8">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[modcp_recyclebin_log]]></item>
+				<item id="description"><![CDATA[°æÖ÷¹ÜÀíÃæ°åÖÐµÄÖ÷Ìâ»ØÊÕÕ¾¹ÜÀí¼ÇÂ¼]]></item>
+				<item id="code"><![CDATA[$op = !in_array($op , array('list', 'delete', 'search', 'restore')) ? 'list' : $op;
+if($fid && $forum['ismoderator'] && $modforums['recyclebins'][$fid]) {
+    $srchupdate = false;
+
+    if($adminid == 1 && $op == 'restore' && submitcheck('dosubmit')) {
+        if($ids = implodeids($moderate)) {
+            $query = $db->query("SELECT tid, authorid FROM {$tablepre}threads WHERE tid IN($ids) AND fid='$fid' AND displayorder='-1'");
+            $sql = "REPLACE INTO {$tablepre}threadlogs (tid, fid, otherid, uid, action, dateline) VALUES ";
+            while ($tid = $db->fetch_array($query)) {
+                $sql .= sprintf("('%d', '%d', '%d', '%d', 'restore', '%d'), ", $tid['tid'], $fid, 0, $tid['authorid'], $timestamp);
+            }
+            $sql = trim($sql, ', ');
+            $db->query($sql, 'UNBUFFERED');
+        }
+    }
+}]]></item>
+			</item>
+			<item id="9">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[modcp_moderate_log]]></item>
+				<item id="description"><![CDATA[°æÖ÷¹ÜÀíÃæ°åÖÐµÄÖ÷Ìâ/Ìû×ÓÉóºËÈÕÖ¾]]></item>
+				<item id="code"><![CDATA[$op = !in_array($op , array('replies', 'threads')) ? 'threads' : $op;
+$mod = !in_array($mod , array('delete', 'ignore', 'validate')) ? 'ignore' : $mod;
+
+if(submitcheck('dosubmit', 1) || submitcheck('modsubmit')) {
+    $list = array();
+    if($moderate && is_array($moderate)) {
+        foreach($moderate as $val) {
+            if(is_numeric($val) && $val) {
+                $moderation[$mod][] = $val;
+            }
+        }
+    }
+}
+
+if ($op == 'replies') {
+    if(submitcheck('modsubmit')) {
+        if($_ids = implodeids($moderation['validate'])) {
+            $query = $db->query("SELECT pid, tid, fid, authorid FROM {$tablepre}posts WHERE pid IN($_ids)");
+            $logsql = '';
+            while($post = $db->fetch_array($query)) {
+				$logsql .= sprintf('(%d, %d, %d, %d, "validate", %d), ', $post['pid'], $post['tid'], $post['fid'], $post['authorid'], $timestamp);
+            }
+
+            if ($logsql) {
+                $db->query("REPLACE INTO {$tablepre}postlogs (pid, tid, fid, uid, action, dateline) VALUES " . trim($logsql, ', '));
+            }
+        }
+    }
+
+} elseif ($op == 'threads') {
+    if(submitcheck('modsubmit')) {
+        if($_ids = implodeids($moderation['validate'])) {
+            $query = $db->query("SELECT tid, fid, authorid FROM {$tablepre}threads WHERE tid IN($_ids)");
+            $logsql = '';
+            while($thread = $db->fetch_array($query)) {
+                $logsql .= "('" . $thread['tid'] . "', '" . $thread['fid'] . "', '', '" . $thread['authorid'] . "', 'validate', '$timestamp'), ";
+            }
+
+            if ($logsql) {
+                $db->query("REPLACE INTO {$tablepre}threadlogs (tid, fid, otherid, uid, action, dateline) VALUES " . trim($logsql, ', '));
+            }
+        }
+    }
+}]]></item>
+			</item>
+			<item id="10">
+				<item id="available"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[modcp_member_log]]></item>
+				<item id="description"><![CDATA[°æÖ÷¹ÜÀíÃæ°åÖÐµÄÓÃ»§¹ÜÀí]]></item>
+				<item id="code"><![CDATA[if($op == 'ban' && $allowbanuser) {
+	$member = loadmember($uid, $username, $error);
+	$usernameenc = rawurlencode($member['username']);
+	
+	if($member && submitcheck('bansubmit') && !$error) {
+		if($bannew == 4 || $bannew == 5) {
+			$_my_banexpirynew = !empty($banexpirynew) ? $timestamp + $banexpirynew * 86400 : 0;
+			$_my_banexpirynew = $_my_banexpirynew > $timestamp ? $_my_banexpirynew : 0;
+			$isrestore = false;
+		} elseif($member['groupid'] == 4 || $member['groupid'] == 5) {
+			$isrestore = true;
+			$_my_banexpirynew = 0;
+		}
+		include_once DISCUZ_ROOT . './plugins/search/common.php';
+		plugin_search_ban_user($member['uid'], $_my_banexpirynew, false, $isrestore);
+	}
+}]]></item>
+			</item>
+		</item>
+		<!--
+		<item id="vars">
+			<item id="0">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[search·þÎñÆ÷IPµØÖ·]]></item>
+				<item id="description"><![CDATA[µ±¿ªÆô¡°Í¬²½É¾³ýË÷ÒýÊý¾Ý¡°Ê±£¬Èç¹ûÉ¾ÌûÊ±ËÙ¶È±äÂý£¬¿ÉÔÚ´ËÖ±½ÓÉèÖÃsearch.manyou.comÓòÃûµÄIPµØÖ·]]></item>
+				<item id="variable"><![CDATA[search_ip]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[Í¬²½É¾³ýË÷ÒýÊý¾Ý]]></item>
+				<item id="description"><![CDATA[Ñ¡ÔñÊÇ£¬ÔÚ¹ÜÀíÔ±É¾³ýÌû×ÓÊ±Ö÷¶¯Í¨ÖªManyouÉ¾³ýË÷ÒýÊý¾Ý£¬·þÎñÆ÷¸ºµ£½Ï´ó¡£<br />Ñ¡Ôñ·ñ£¬ÔÚ¹ÜÀíÔ±É¾³ýÌû×ÓÊ±½«²Ù×÷½á¹û¼ÇÈëÈÕÖ¾±í±»¶¯µÈ´ýManyouÍ¬²½Êý¾Ý£¬·þÎñÆ÷¸ºµ£½ÏÐ¡<b><br /><a href="my_search.php?script=admincp" target="_blank">ÆäËüËÑË÷ÉèÖÃ</a></b>]]></item>
+				<item id="variable"><![CDATA[sync_delete]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		-->
+		<item id="language">
+			<item id="scriptlang">
+				<item id="nofounder"><![CDATA[Ö»ÓÐ´´Ê¼ÈË²Å¿ÉÒÔ½øÈë×ÝºáËÑË÷¹ÜÀí£¬Çë·µ»Ø¡£]]></item>
+				<item
+					id="disabled"><![CDATA[ËÑË÷²å¼þÒÑ¹Ø±Õ£¬ÎÞ·¨½øÐÐËÑË÷ÉèÖÃ¡£Çë¿ªÆô£¨¹ÜÀíºóÌ¨ / ²å¼þ / ÂÛÌ³²å¼þ£¬Ñ¡Ôñ"Search"¿ªÆô£©¡£]]></item>
+				<item id="no_open"><![CDATA[±§Ç¸£¬ÍøÕ¾»¹Ã»ÓÐ¿ªÆôËÑË÷¹¦ÄÜ£¬ÇëÁªÏµÕ¾³¤¿ªÆô¡£]]></item>
+				<item id="open"><![CDATA[×ÝºáËÑË÷·þÎñÒÑ¿ªÆô¡£]]></item>
+				<item id="close"><![CDATA[×ÝºáËÑË÷·þÎñÒÑ¹Ø±Õ¡£]]></item>
+				<item id="error"><![CDATA[Manyou·þÎñ¿ªÆôÊ§°Ü£¬Ê§°ÜÔ­Òò£º<br>{$res[errMessage]} (ERRCODE:{$res[errCode]})<br><br><a href='http://www.discuz.net/index.php?gid=141' target='_blank'>Èç¹ûÓÐÒÉÎÊ£¬Çë·ÃÎÊÎÒÃÇµÄ¼¼ÊõÂÛÌ³Ñ°Çó°ïÖú</a>¡£]]></item>
+				<item id="sync"><![CDATA[Õ¾µãÐÅÏ¢ÒÑ³É¹¦Í¬²½¡£]]></item>
+				<item id="done"><![CDATA[²Ù×÷Íê³É¡£]]></item>
+				<item id="noperm"><![CDATA[ÄúÎÞÈ¨½øÐÐ´Ë²Ù×÷¡£]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="search"><![CDATA[×ÝºáËÑË÷]]></item>
+				<item id="tips_title"><![CDATA[×ÝºáËÑË÷¹ÜÀí]]></item>
+				<item id="hotsearch"><![CDATA[ÈÈËÑ´Ê]]></item>
+				<item id="form_tips"><![CDATA[ÊäÈëÈÎÒâ¹Ø¼ü´Ê£¬¿ìËÙÈ«ÎÄËÑË÷±¾Õ¾]]></item>
+				<item id="tips_comment_sync"><![CDATA[
+					<ul style="margin-left: 2em">
+						<li>Èç¹ûÄúÐÞ¸ÄÁËÕ¾µãµÄÐÅÏ¢µ¼ÖÂËÑË÷¹¦ÄÜ²»ÄÜÕý³£Ê¹ÓÃ£¬ÇëÑ¡ÔñÍ¬²½ÐÅÏ¢</li>
+						<li>Èç¹ûÏëÒª¹Ø±ÕËÑË÷¹¦ÄÜ£¬µã»÷¡°¹Ø±Õ×ÝºáËÑË÷¹¦ÄÜ¡±</li>
+						<li>×¢Òâ£º¹Ø±ÕËÑË÷¹¦ÄÜºóÓÃ»§½«ÎÞ·¨Ê¹ÓÃËÑË÷¹¦ÄÜ¡£</li>
+					</ul>]]></item>
+				<item id="loading"><![CDATA[¼ÓÔØÖÐ]]></item>
+				<item id="operation"><![CDATA[²Ù×÷Ñ¡Ïî]]></item>
+				<item id="sync"><![CDATA[Í¬²½ÐÅÏ¢]]></item>
+				<item id="close"><![CDATA[¹Ø±ÕËÑË÷¹¦ÄÜ]]></item>
+				<item id="feedperpage"><![CDATA[Ê×Ò³Ã¿Ò³¶¯Ì¬ÌõÄ¿Êý]]></item>
+				<item id="save"><![CDATA[±£´æ]]></item>
+				<item id="intro_title"><![CDATA[×ÝºáËÑË÷½éÉÜ]]></item>
+				<item id="intro_message"><![CDATA[×ÝºáËÑË÷ÊÇ×¨ÎªDiscuz²úÆ·Á¿Éí¶¨×öµÄ°²È«¡¢¸ßÐ§¡¢È«ÎÄËÑË÷·þÎñ£¬ÎÞÐëÕ¼ÓÃÂÛÌ³µÄMySQL×ÊÔ´£¬¿É½â¾öÂÛÌ³´óÊý¾ÝÇé¿öÏÂ£¬ÓÉÓÚËÑË÷Ôì³ÉÂÛÌ³¸ºÔØÔö¼ÓÉõÖÁå´µôµÄÎÊÌâ¡£]]></item>
+				<item id="open"><![CDATA[¿ªÆôËÑË÷]]></item>
+				<item id="invite"><![CDATA[ËÑË÷ÑûÇëÂë]]></item>
+				<item id="invite_tip"><![CDATA[<span style="color: #666;">Ä¿Ç°´¦ÓÚ²âÊÔ½×¶Î£¬ÐèÒªËÑË÷ÑûÇëÂë¡£<a href="http://www.discuz.net/thread-1669366-1-1.html" target="_blank">µã»÷ÕâÀïÉêÇë</a></span>]]></item>
+				<item id="submit"><![CDATA[Ìá½»]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+	</item>
+</root>

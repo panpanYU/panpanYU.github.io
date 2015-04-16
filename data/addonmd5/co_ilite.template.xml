@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[co_ilite.template]]></item>
+	<item id="RevisionID"><![CDATA[13312]]></item>
+	<item id="SN"><![CDATA[2014070301R8L7W04QlP]]></item>
+	<item id="RevisionDateline"><![CDATA[1376013603]]></item>
+	<item id="Data">
+		<item id="/common/extend_common.css"><![CDATA[e9368259e71c93e9be82751586764319]]></item>
+		<item id="/common/extend_module.css"><![CDATA[d1563423156022c0c41d61f60c4ba5cb]]></item>
+		<item id="/common/footer.htm"><![CDATA[95dfafeb0b8b75c4c1de0adc0bf32f60]]></item>
+		<item id="/common/index.htm"><![CDATA[7215ee9c7d9dc229d2921a40e899ec5f]]></item>
+		<item id="/common/titlebg.png"><![CDATA[9ccf109365d8f653473a5b15803954a7]]></item>
+		<item id="/common/widthauto.css"><![CDATA[868998fad4754462540ce92fa949fe49]]></item>
+		<item id="/discuz_style_co_ilite.xml"><![CDATA[54d632927414276cdacd53dfcae1d589]]></item>
+		<item id="/forum/discuz.htm"><![CDATA[9837d9f7be4500b76ddfd050a58593d6]]></item>
+		<item id="/forum/index.htm"><![CDATA[7215ee9c7d9dc229d2921a40e899ec5f]]></item>
+		<item id="/image/background.png"><![CDATA[f0dfce2eb20447b52bb21dacf9dfd8dd]]></item>
+		<item id="/image/bg_arrow_left_cmt.png"><![CDATA[d8ac335ed860e86fbfdefd840ca3713a]]></item>
+		<item id="/image/bg_tb.png"><![CDATA[14f86074fb94d605e59efd249e89a825]]></item>
+		<item id="/image/bg_tbn_a.png"><![CDATA[8ca070ca190b72c2633deabb4d9e1c2d]]></item>
+		<item id="/image/chart.png"><![CDATA[d9d1ac0d0b573b001339b6f44eae4ee4]]></item>
+		<item id="/image/index.htm"><![CDATA[7215ee9c7d9dc229d2921a40e899ec5f]]></item>
+		<item id="/image/info.png"><![CDATA[66462ee657d2fc0705efcd7fcccdb76d]]></item>
+		<item id="/image/layer_bg.png"><![CDATA[a617b666f8b606df5ba455ac67c0ec25]]></item>
+		<item id="/image/logo.png"><![CDATA[217e16a4318b77665548714ed6f14f1c]]></item>
+		<item id="/image/mood_input_btn.png"><![CDATA[c4e3f0f4f15b19632df4783fd428858e]]></item>
+		<item id="/image/pn_post.png"><![CDATA[39d11c50358f2b36b212307ffbf9141b]]></item>
+		<item id="/image/pn_reply.png"><![CDATA[9f177903bef74d32234a701c040600c5]]></item>
+		<item id="/image/pn_rt.png"><![CDATA[55096ebee8c46f663c729ec872fd9083]]></item>
+		<item id="/image/search.png"><![CDATA[b5804b3ef7871d797aef2df69f59a3cb]]></item>
+		<item id="/image/titlebg.png"><![CDATA[d5f6fca974b0304f17263e1af5138d87]]></item>
+		<item id="/image/vlineb.png"><![CDATA[868dba5ea6ba24c8f3e96e48a3dc5246]]></item>
+		<item id="/index.htm"><![CDATA[7215ee9c7d9dc229d2921a40e899ec5f]]></item>
+		<item id="/preview.jpg"><![CDATA[76e35edd7e8f1d3c0236482a41a240a0]]></item>
+		<item id="/style/index.htm"><![CDATA[7215ee9c7d9dc229d2921a40e899ec5f]]></item>
+		<item id="/style/orange/background.png"><![CDATA[fd3b4b20b6bdd721dd5b75dbab8d7d2d]]></item>
+		<item id="/style/orange/create_group.png"><![CDATA[b39badcd447deb7e51bfeb56673552f6]]></item>
+		<item id="/style/orange/flw_post.png"><![CDATA[d2d4fdbb58e1048db14c616e5b7ff448]]></item>
+		<item id="/style/orange/hotspot.gif"><![CDATA[0b7ff850d3d15f9ce6a9014f52729efc]]></item>
+		<item id="/style/orange/index.htm"><![CDATA[7215ee9c7d9dc229d2921a40e899ec5f]]></item>
+		<item id="/style/orange/info.png"><![CDATA[9da5c547d668656f87c0c532b5bca214]]></item>
+		<item id="/style/orange/mood_input.png"><![CDATA[5a148f4bd6abff0ae8b5dc801bf40f00]]></item>
+		<item id="/style/orange/mood_input_btn.png"><![CDATA[add5e90a6c3c9e15dd79d7c9cbb5f882]]></item>
+		<item id="/style/orange/pn.png"><![CDATA[b17c34254c069bddf68ca791f90ed35d]]></item>
+		<item id="/style/orange/pn_post.png"><![CDATA[70c75613ecfc18dbd9e5905ed454280d]]></item>
+		<item id="/style/orange/pn_reply.png"><![CDATA[356141369777cdcbb5c31f30c30c9eb4]]></item>
+		<item id="/style/orange/pn_rt.png"><![CDATA[c1ca0734e9ab045d34ca716c6523dbfd]]></item>
+		<item id="/style/orange/polljoins.gif"><![CDATA[c86262d53685371bcc4dc1f2a3920f3b]]></item>
+		<item id="/style/orange/search.png"><![CDATA[c4214cecd2c1fecd2f28b14e67d13b0d]]></item>
+		<item id="/style/orange/style.css"><![CDATA[f546a9e15825f180750a7be9535e9680]]></item>
+		<item id="/style/orange/titlebg.png"><![CDATA[43ba8dfd4fc1c5b37d3303bccba51988]]></item>
+		<item id="/style/orange/titlebg_sd.png"><![CDATA[653ceca8961be88825187509a6bc1551]]></item>
+	</item>
+</root>

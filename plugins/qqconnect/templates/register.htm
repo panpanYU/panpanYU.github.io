@@ -1,0 +1,354 @@
+{template header}
+<style>
+	.logininfo{margin: 27px 0px 10px 40px;}
+</style>
+
+<!--{if !empty($message)}-->
+<script type="text/javascript" onload="1">
+	{eval $bbname = str_replace('\'', '\\\'', $bbname);}
+	display('main_cmessage');
+	display('layer_creg');
+	display('layer_cmessage');
+{if $regverify == 1}
+$('cmessageleft1').innerHTML = '<p>{lang register_succeed} $bbname</p><p>{lang profile_email_verify}</p>';
+$('cmessageright1').innerHTML = '<a href="memcp.php">{lang user_center}</a><br />{lang profile_email_verify_comment}';
+setTimeout("window.location.href='memcp.php'", $mrefreshtime);
+{elseif $regverify == 2}
+$('cmessageleft1').innerHTML = '<p>{lang register_succeed} $bbname</p><p>{lang register_manual_verify}</p>';
+$('cmessageright1').innerHTML = '<a href="memcp.php">{lang user_center}</a>';
+setTimeout("window.location.href='memcp.php'", $mrefreshtime);
+{else}
+{if $newbietask}
+$('cmessageleft1').innerHTML = '<p>{lang register_succeed} $bbname</p><p>{lang register_newbietask}</p>';
+$('cmessageright1').innerHTML = '<a href="javascript:;" onclick="location.href=\'task.php?action=view&id=$task[taskid]\'">{lang login_refresh}</a>';
+setTimeout('location.href=\'task.php?action=view&id=$task[taskid]\'', $mrefreshtime);
+{else}
+$('cmessageleft1').innerHTML = '<p>{lang register_succeed} $bbname</p>';
+$('cmessageright1').innerHTML = '<a href="javascript:;" onclick="location.href=\'{$referer}\'">{lang login_refresh}</a>';
+setTimeout('location.href=\'{$referer}\'', $mrefreshtime);
+{/if}
+{/if}
+{if $_DCACHE['settings']['frameon'] && $_DCOOKIE['frameon'] == 'yes'}
+if(top != self) {
+	parent.leftmenu.location.reload();
+}
+{/if}
+</script>
+
+<!--{else}-->
+
+<div id="nav"><a href="$indexname">$bbname</a> $navigation</div>
+<div id="wrap" class="wrap s_clear">
+	<div class="main"><div class="content nofloat">
+
+			<div class="fcontent" id="main_cmessage">
+				<div id="layer_bbrule" class="postbox" style="display: none;">
+					<div>
+						<h3>$bbname {lang rulemessage}</h3>
+						<div class="clause">$bbrulestxt</div>
+						<button onclick="$('agreebbrule').checked = true;display('layer_creg');display('layer_bbrule');messagehandle_register(2, register_complete);">{lang agree}</button> &nbsp; <button onclick="hideWindow('register')">{lang disagree}</button>
+					</div>
+				</div>
+				<div id="layer_creg" class="postbox s_clear">
+					<h3 class="float_ctrl">
+						<em id="returnmessage4">{lang qqconnect:connect_register_complete}</em>
+					</h3>
+
+					<script type="text/javascript" src="{$jspath}calendar.js?{VERHASH}"></script>
+					<form method="post" name="register" id="registerform" onsubmit="ajaxpost('registerform', 'returnmessage4', 'returnmessage4', 'onerror');return false;" action="connect.php?mod=register&regsubmit=yes">
+						<input type="hidden" name="formhash" value="{FORMHASH}" />
+						<input type="hidden" name="referer" value="$referer" />
+						<input type="hidden" name="auth_hash" value="{$_DCOOKIE['con_auth_hash']}" />
+
+						<div class="loginform">
+							<!--{if $uinlimit}-->
+							<div style="margin: -20px 10px 10px 0;"><b>{lang qqconnect:connect_uin_limit}</b></div>
+							<!--{/if}-->
+							<table class="formtable" cellspacing="0" cellpadding="0">
+								<tr>
+									<th valign="top" style="width:50px;">{lang username}:</th>
+									<td>
+										<div style="margin:3px 0;">
+											<input type="text" class="txt" style="color:#999;" value="" size="25" id="username_new_input" name="username" onBlur="checkusername(this.value)" tabindex="100"> *
+										</div>
+
+										<div id="used_usernames_div" style="display:none;">
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th valign="top" style="width:50px;">{lang email}:</th>
+									<td>
+										<div>
+											<input type="text" class="txt" value="{$connect_email}" size="25" id="email" name="email" onBlur="checkemail()" tabindex="300" /> *
+										</div>
+										<div style="margin:3px 0 0 0; padding-left:3px;">
+											<label for="public_email" style="margin: 0;">
+												<input type="checkbox" value="1" id="public_email" name="public_email" tabindex="400" /> {lang qqconnect:connect_register_public_email}
+											</label>
+										</div>
+									</td>
+								</tr>
+
+								<tr>
+									<th valign="top" style="width:50px;"></th>
+									<td>
+										<img src="{IMGDIR}/notice.gif" alt="" class="vm" align="absmiddle" /> {lang qqconnect:connect_register_tips}
+									</td>
+								</tr>
+
+								<tr>
+									<td colspan="2" style="text-align:center;">
+										<!--{if $secqaacheck || $seccodecheck}-->
+										<div class="regsec"><em>{lang memcp_profile_security_check}: </em>{subtemplate seccheck}</div>
+										<!--{/if}-->
+										<input type="submit" name="consubmit" id="consubmit" value="{lang qqconnect:connect_register_finish}" tabindex="800" {if $uinlimit}disabled="disabled"{/if} />
+										<!--{if $bbrules}-->
+										<input type="checkbox" value="$bbrulehash" name="agreebbrule" id="agreebbrule" checked="checked">
+										{lang agree}<a href="javascript:;" onclick="display('layer_creg');display('layer_bbrule');">{lang rulemessage}</a>
+										<!--{/if}-->
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="logininfo">
+							<h4>{lang qqconnect:connect_register_has_id}<a onclick="connect_switch(1)" href="javascript:;" tabindex="900">{lang qqconnect:connect_register_bind}</a></h4>
+								<p>{lang qqconnect:connect_member_register_tip}</p>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="fcontent" id="bind_message" style="display:none">
+					<div>
+						<h3 class="float_ctrl">
+							<em id="bindmessage">{lang qqconnect:connect_register_bind_title}</em>
+						</h3>
+						<div class="postbox">
+							<form method="post" name="bind" id="bindform" class="s_clear" onsubmit="" action="connect.php?mod=logging&action=login&loginsubmit=yes">
+								<input type="hidden" name="formhash" value="{FORMHASH}" />
+								<input type="hidden" name="referer" value="$referer" />
+								<input type="hidden" name="auth_hash" value="{$_DCOOKIE['con_auth_hash']}" />
+								<div class="loginform nolabelform">
+									<div class="float_typeid selectinput">
+										<select name="loginfield" style="float:left;width:50px;" id="bind_loginfield">
+											<option value="username">{lang username}</option>
+											<option value="uid">{lang uid}</option>
+											<option value="email">{lang email}</option>
+										</select>
+										<input type="text" name="username" autocomplete="off" size="36" class="txt" tabindex="1" value="" />
+									</div>
+									<p class="selectinput loginpsw">
+									<label for="bind_password3">{lang login_password}</label>
+									<input type="password" id="bind_password3" name="password" onkeypress="detectCapsLock(event, this)" size="36" class="txt" tabindex="1" />
+									</p>
+
+									<div class="float_typeid selecttype">
+										<select id="bind_questionid" name="questionid" change="if($('questionid').value > 0) {$('answer').style.display='';} else {$('answer').style.display='none';}">
+											<option value="0">{lang security_question}</option>
+											<option value="1">{lang security_question_1}</option>
+											<option value="2">{lang security_question_2}</option>
+											<option value="3">{lang security_question_3}</option>
+											<option value="4">{lang security_question_4}</option>
+											<option value="5">{lang security_question_5}</option>
+											<option value="6">{lang security_question_6}</option>
+											<option value="7">{lang security_question_7}</option>
+										</select>
+									</div>
+									<p><input type="text" name="answer" id="answer" style="display:none" autocomplete="off" size="36" class="txt" tabindex="1" /></p>
+								</div>
+								<!--{if $regconnect}-->
+								<div class="logininfo multinfo">
+									<h4>{lang qqconnect:connect_register_noid}<a onclick="connect_switch(2)" href="javascript:;" tabindex="900">{lang qqconnect:connect_register_new}</a></h4>
+									<p>{lang qqconnect:connect_member_loginbind_tip}</p>
+								</div>
+								<!--{/if}-->
+								<p class="fsubmit s_clear">
+								<button class="submit" type="submit" name="consubmit" value="true" tabindex="1">{lang qqconnect:connect_register_bind_window_button}</button>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div id="layer_cmessage" class="fcontent alert_win" style="display: none;">
+					<h3 class="float_ctrl">
+						<em>{lang login_member}</em>
+						<span></span>
+					</h3>
+					<hr class="shadowline" />
+					<div class="postbox"><div class="alert_right">
+							<div id="cmessageleft1"></div>
+							<p class="alert_btnleft" id="cmessageright1"></p>
+						</div>
+					</div>
+
+					<script type="text/javascript" reload="1">
+
+						$('bindform').onsubmit = function() {
+							ajaxpost('bindform', 'bindmessage', 'bindmessage', 'onerror');
+							return false;
+						}
+simulateSelect('bind_loginfield');
+simulateSelect('bind_questionid');
+
+var username_tips = "{lang qqconnect:connect_register_new_username}";
+var profile_username_toolong = '{lang register_profile_username_toolong}';
+var profile_username_tooshort = '{lang register_profile_profile_username_tooshort}';
+var doublee = parseInt('$doublee');
+var lastusername = lastpassword = lastemail = lastinvitecode = '';
+var reglinkname = '{$reglinkname}';
+var register_complete = '{lang qqconnect:connect_register_complete}';
+var register_must_agree = '{lang qqconnect:connect_register_must_agree}';
+
+$('username_new_input').onkeydown = $('username_new_input').onclick = function() {
+	if ($('username_new_input').value == username_tips) {
+		$('username_new_input').value = '';
+		$('username_new_input').style.color = '';
+	}
+};
+
+function connect_use_available(input) {
+	if (input.checked) {
+		$('username_new_input').value = input.value;
+		checkusername(input.value);
+	}
+}
+
+_attachEvent(window, 'load', function() {
+		$('username_new_input').focus();
+		});
+
+{if $connect['register_birthday']}
+_attachEvent($('birthday'), 'keydown', function(e) {
+		if (e.keyCode == 9) {
+		$('calendar').style.display = 'none';
+		$('calendar_year').style.display = 'none';
+		$('calendar_month').style.display = 'none';
+		if(BROWSER.ie && BROWSER.ie < 7) {
+		$('calendariframe').style.display = 'none';
+		$('calendariframe_year').style.display = 'none';
+		$('calendariframe_month').style.display = 'none';
+		}
+		}
+		});
+{/if}
+
+function messagehandle_register(key, msg) {
+	if (msg == reglinkname) {
+		msg = register_complete;
+	}
+	$('returnmessage4').className = key == 1 ? 'onerror' : '';
+	$('returnmessage4').innerHTML = msg;
+}
+
+function checkusername(username) {
+	if (username == username_tips) {
+		return false;
+	}
+	if(username == '' || username == lastusername) {
+		return;
+	} else {
+		lastusername = username;
+	}
+	var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
+	if(unlen < 3 || unlen > 15) {
+		messagehandle_register(1, unlen < 3 ? profile_username_tooshort : profile_username_toolong);
+		return;
+	}
+	ajaxget('ajax.php?infloat=register&handlekey=register&action=checkusername&username=' + (BROWSER.ie && document.charset == 'utf-8' ? encodeURIComponent(username) : username), 'returnmessage4');
+}
+
+function checkemail() {
+	var email = trim($('email').value);
+	if(email == '' || email == lastemail) {
+		return;
+	} else {
+		lastemail = email;
+	}
+	ajaxget('ajax.php?infloat=register&handlekey=register&action=checkemail&email=' + email, 'returnmessage4');
+
+}
+function trim(str) {
+	return str.replace(/^\s*(.*?)[\s\n]*$/g, '$1');
+}
+
+if(typeof(HTMLElement)!="undefined" && !window.opera)
+{
+	HTMLElement.prototype.__defineGetter__("outerHTML",function()
+			{
+			var a=this.attributes, str="<"+this.tagName, i=0;for(;i<a.length;i++)
+			if(a[i].specified)
+			str+=" "+a[i].name+'="'+a[i].value+'"';
+			if(!this.canHaveChildren)
+			return str+" />";
+			return str+">"+this.innerHTML+"</"+this.tagName+">";
+			});
+	HTMLElement.prototype.__defineSetter__("outerHTML",function(s)
+			{
+			var r = this.ownerDocument.createRange();
+			r.setStartBefore(this);
+			var df = r.createContextualFragment(s);
+			this.parentNode.replaceChild(df, this);
+			return s;
+			});
+	HTMLElement.prototype.__defineGetter__("canHaveChildren",function()
+			{
+			return !/^(area|base|basefont|col|frame|hr|img|br|input|isindex|link|meta|param)$/.test(this.tagName.toLowerCase());
+			});
+}
+
+function init_select_sex() {
+	simulateSelect('sex');
+	$('sex_ctrl').style.width = '154px';
+}
+
+{if $connect['register_gender']}
+if(BROWSER.ie && BROWSER.ie < 7) {
+	setTimeout('init_select_sex()', 500);
+} else if (USERAGENT.indexOf('firefox/4') < 0) {
+	init_select_sex();
+}
+{/if}
+
+function connect_switch(op) {
+	if(op == 1) {
+		$('main_cmessage').style.display = 'none';$('bind_message').style.display = '';
+	} else {
+		$('main_cmessage').style.display = '';$('bind_message').style.display = 'none';
+	}
+}
+{if !$regconnect}
+connect_switch(1);
+{/if}
+<!--{if $uinlimit}-->
+$('consubmit').disabled = true;
+<!--{/if}-->
+</script>
+
+	</div></div>
+</div>
+<!--{/if}-->
+{eval updatesession();}
+{template footer}
+
+<script>
+	function connect_get_user_info() {
+		var x = new Ajax('HTML');
+		x.get('connect.php?mod=user&op=get&_r='+Math.random(), function(s){
+			s = s.replace('<span>', '').replace('</span>', '');
+			var params = s.split("\n");
+			var nick = params[0];
+			var username = params[1];
+			if(nick) {
+				document.getElementById('connect_nick_register').innerHTML = '<strong>&nbsp;'+nick+'&nbsp;</strong>';
+				document.getElementById('connect_nick_logging').innerHTML = '<strong>&nbsp;'+nick+'&nbsp;</strong>';
+			}
+			if(username) {
+				document.getElementById('username_new_input').value = username;
+				document.getElementById('username_new_input').style.color = '';
+			}
+		});
+	}
+	window.load=connect_get_user_info();
+</script>

@@ -1,0 +1,72 @@
+/* 弹窗 for 7.2 */
+.fwinmask {}
+	/* 浮动窗口最外层 */
+	.fwin { overflow-x: hidden; margin: 0 auto; text-align: left; }
+		/* 以下 class 都可以分开写，单独定义，以便个性化 */
+		/* 四条边、四个角的公用样式 */
+		.t_l, .t_c, .t_r, .m_l, .m_r, .b_l, .b_c, .b_r { overflow: hidden; opacity: 0.9; filter: alpha(opacity=90); background: none repeat scroll 0 0 #7FCAE2; }
+		/* 四个角 */
+		.t_l, .t_r, .b_l, .b_r { width: 8px; height: 8px; }
+		/* 上下两条边 */
+		.t_c, .b_c { height: 8px; }
+		/* 左右两条边 */
+		.m_l, .m_r { width: 8px; }
+		/* 内容区 */
+		.m_c { background: none repeat scroll 0 0 #F1F5FA; }
+			.fcontent { margin: 15px; }
+
+.float_ctrl, .flb { margin-bottom: 15px; height: 20px; line-height: 20px; }
+	.float_ctrl em, .flb em { float: left; font-size: 14px; font-weight: 700; color: #0099CC; }
+		.float_ctrl em a, .flb em a { text-decoration: none; }
+	.float_ctrl .needverify, .flb .needverify { margin-left: 8px; padding-left: 13px; width: 45px; height: 21px; line-height: 21px; background: url(../../../images/default/re_unsolved.gif) no-repeat 0 0; font-size: 12px; color: {MIDTEXT}; font-weight: 400; }
+	.float_ctrl .onerror, .float_ctrl .onright, .flb .onerror, .flb .onright { white-space: nowrap; height: auto; line-height: 140%; color: {TABLETEXT}; font-size: 12px; font-weight: 400; }
+
+	.float_ctrl span, .flb span { float: right; color: #999999;}
+		.float_ctrl span a, .float_ctrl strong, .flb span a, .flb strong { float: left; text-decoration: none; margin-left: 8px; font-weight: 400; color: #444444; }
+			.float_ctrl span a:hover, .flb span a:hover { color: #999999; }
+		.float_close, .flbc { float: left; width: 20px; height: 20px; overflow: hidden; text-indent: -9999px; background: url(../../../images/default/newclose.gif) no-repeat 0 0; }
+			.float_close:hover, .flbc:hover { background-position: 0 -20px; }
+
+		.floatwrap { overflow: auto; overflow-x: hidden; margin-bottom: 10px; height: 280px; }
+		.fcontent li { list-style: none; }
+		.fcontent a { color: #0099CC; text-decoration: underline; }
+		.fcontent .list { margin: 0 auto; width: 570px; border-top: 3px solid #E6E7E1; border-bottom: 3px solid #E6E7E1; }
+			.fcontent .list th, .fcontent .list td { padding: 3px !important; height: auto; border-bottom: 1px dashed #E6E7E1; }
+			.fcontent .list .btns th, .fcontent .list .btns td { border-bottom: none; }
+			.fcontent .list th { width: 150px; background: none; }
+		.fcontent .o { margin-top: 10px;}
+
+.postbox { clear: both; }
+	.moreconf { margin-top: 10px; }
+		.moreconf button, .moreconf a { margin-right: 3px; }
+/* 弹窗 */
+
+
+.stepstat{ *margin-bottom:0px; width: 100%; border-bottom: 1px dotted #D0E3F7; background: #F2F9FD; overflow: hidden; clear: both; }
+	.stepstat li{ float:left; margin-right:0px; padding: 0 6px; height: 24px; line-height: 24px; color:#999; }
+	.stepstat li span { margin-left: 12px; color:#999; }
+	.stepstat .current{ color:#090; font-weight: 700; }
+
+.pn {
+	background: url("../../common/pn.png") repeat-x scroll 0 0 #E5E5E5;
+	border: 1px solid #999999;
+	box-shadow: 0 1px 0 #E5E5E5;
+	cursor: pointer;
+	height: 23px;
+	margin-right: 3px;
+	overflow: hidden;
+	padding: 0;
+	vertical-align: middle;
+}
+.pnc, a.pnc {
+	background-color: #0066CC;
+	background-position: 0 -48px;
+	border-color: #235994;
+	color: #FFFFFF !important;
+}
+
+.pn em, .pn span, .pn strong {
+	line-height: 21px;
+	padding: 0 10px;
+}
+

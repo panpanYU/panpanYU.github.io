@@ -1,31 +1,433 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Panpanyu.GitHub.io by panpanYU</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Panpanyu.GitHub.io</h1>
-      <h2 class="project-tagline">WO DE DI YI GE YE MIAN</h2>
-    </section>
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="renderer" content="webkit">
+	<title>余攀简历</title>
+	<style type="text/css">
+		body{color:#222;-webkit-text-size-adjust:none;}
+		body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl, dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,iframe{margin:0; padding:0;}
+		h1,h2,h3,h4,h5,h6{font-size:100%;}
+		body,button,input,select,textarea {font-family:Tahoma,Arial,Roboto,”Droid Sans”,”Helvetica Neue”,”Droid Sans Fallback”,”Heiti SC”,sans-self;font-size:62.5%; line-height:1.5;}
+		ol,ul{list-style:none;}
+		a{ color:#FFF; font-size:12px; line-height:14px;text-decoration:none}
+		a:hover{ color:#F06;}
+		
+		html,body{ width:100%; height:100%; overflow:hidden;}
+		.section-wrap{ width:100%;height:100%;overflow:visible;transition:transform 1s cubic-bezier(0.86,0,0.03,1);-webkit-transition:-webkit-transform 1s cubic-bezier(0.86,0,0.03,1);}
+		.section-wrap .section{ position:relative; width:100%; height:100%; background-position:center center; background-repeat:no-repeat;}
+		.section-wrap .section .title{width:100%;position:absolute;top:10%;color:#fff;font-size:2.4em;text-align:center;}
+		.section-wrap .section .title p{ padding:0 4%;opacity:0}
+		.section-wrap .section .title.active .tit{ opacity:1;transform:translateY(-25px);-webkit-transform:translateY(-25px);transition:all 2s cubic-bezier(0.86,0,0.8,1);-webkit-transition:all 2s cubic-bezier(0.86,0,0.8,1);}
+		.section-wrap .section-1{ background-image:url(img/bg.jpg);}
+		.section-wrap .section-2{ background-color:rgba(255, 255, 255, 0.12);}
+		.section-wrap .section-3{ background-color:#5bc0de}
+		.section-wrap .section-4{ background-color:#f0ad4e}
+		.section-wrap .section-5{ background-color:#d9534f}
+		.put-section-0{ transform:translateY(0);-webkit-transform:translateY(0);}
+		.put-section-1{ transform:translateY(-100%);-webkit-transform:translateY(-100%);}
+		.put-section-2{ transform:translateY(-200%);-webkit-transform:translateY(-200%);}
+		.put-section-3{ transform:translateY(-300%);-webkit-transform:translateY(-300%);}
+		.put-section-4{ transform:translateY(-400%);-webkit-transform:translateY(-400%);}
+		.section-btn{ width:14px;position:fixed;right:4%;top:50%;}
+		.section-btn li{ width:14px;height:14px;cursor:pointer;text-indent:-9999px;border-radius:50%;-webkit-border-radius:50%;margin-bottom:12px; background:#BD362F;text-align:center; color:#fff; onsor:pointer;}
+		.section-btn li.on{ background:#fff}
+		.arrow{ opacity:1;animation:arrow 3s cubic-bezier(0.5,0,0.1,1) infinite;-webkit-animation:arrow 3s cubic-bezier(0.5,0,0.1,1) infinite;transform:rotate(-90deg);-webkit-transform:rotate(-90deg); position:absolute;bottom:10px;left:50%;margin-left:-30px;width:60px;height:60px;border-radius:100%;-webkit-border-radius:100%;line-height:60px;text-align:center;font-size:20px;color:#fff;border:1px solid #fff;cursor:pointer;overflow:hidden;}
+		.arrow:hover{ animation-play-state:paused;-webkit-animation-play-state:paused;}
+		@keyframes arrow{ %0,%100{bottom:10px; opacity:1;} 50%{bottom:50px; opacity:.5} }
+		@-webkit-keyframes arrow{ %0,%100{bottom:10px; opacity:1;} 50%{bottom:50px; opacity:.5} }
+		
+		
+		.nav{padding-bottom:10px;}
+		.nav li{ padding-right:60px; float:left; width:100px; color:#999;}
+		.nav .li{ padding-right:60px; float:left; width:200px;  color:#999;}
+		.skill{ padding-left:270px;line-height:80px; text-align:center; font-size:10px;font-family: Helvetica, Arial, sans-serif; postion:relative;}
+		.skill li{ float:left; margin:0 15px 0 20px; display:block; background-color:rgba(39, 39, 39, 0.25);width: 80px; height: 80px;
+		border:7px solid rgba(153, 153, 153, 0.25);color:rgba(153, 153, 153, 0.85);
+		-moz-border-radius: 80px; /* Firefox */
+  -webkit-border-radius: 80px; /* Safari 和 Chrome */
+  border-radius: 80px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */ }
+		.skill p{ font-size:25px; height:20px;  text-align:center;}
+		
+		
+		
+		
+		
+		.skill .one{ }
+		.skill .one p{color:rgba(39, 39, 39, 0.85);}
+		
+		.skill .one :hover{ display:block;  color:#fff;width: 80px; height: 80px; 
+		border:1px solid #96cbff; 
+		background-color: #201865;
+		-moz-border-radius: 80px; /* Firefox */
+  -webkit-border-radius: 80px; /* Safari 和 Chrome */
+  border-radius: 80px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */ }
+  .skill .one p:hover{ color:#96cbff;}
+		
+		.skill .two{ }
+		.skill .two :hover{display:block;color:#fff;width: 80px; height: 80px; background-color: #1E2B16; position:absolute;
+		-moz-border-radius: 80px; /* Firefox */
+  -webkit-border-radius: 80px; /* Safari 和 Chrome */
+  border-radius: 80px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */ border:1px solid #71F72F;}
+		.skill .two p{color:rgba(39, 39, 39, 0.85);}
+		.skill .two p:hover{ color:#71F72F;}
+		
+		
+		.skill .three :hover{width: 80px; height: 80px; background-color: #CEA605; -moz-border-radius: 80px; /* Firefox */
+  -webkit-border-radius: 80px; /* Safari 和 Chrome */
+  border-radius: 80px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */ border:1px solid #F9DD29;}
+		.skill .three p{color:rgba(39, 39, 39, 0.85);}
+		.skill .three p:hover{ color:#F9DD29;}
+		
+		
+		
+		.skill .four :hover{width: 80px; height: 80px; background-color: #185148; -moz-border-radius: 80px; /* Firefox */
+  -webkit-border-radius: 80px; /* Safari 和 Chrome */
+  border-radius: 80px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */ border:1px solid #23c4ac;}
+		.skill .four p{color:rgba(39, 39, 39, 0.85);}
+		.skill .four p:hover{ color:#23c4ac;}
+		
+		.skill .five :hover{width: 80px; height: 80px; background-color: #a7141b; -moz-border-radius: 80px; /* Firefox */
+  -webkit-border-radius: 80px; /* Safari 和 Chrome */
+  border-radius: 80px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */border:1px solid #fa9b9f;}
+		.skill .five p{color:rgba(39, 39, 39, 0.85);}
+		.skill .five p:hover{ color:#fa9b9f;}
+		
+		
+		.work{list-style-type:disc; padding-left:10px; float:left;}
+		
+		
+		.skill1{ line-height:80px; text-align:center; font-size:10px;font-family: Helvetica, Arial, sans-serif; }
+		.skill1 li{ float:left; margin:0 0px 0 0px; display:block; padding-right:19px;}
+		.skill1 li:hover{ display:block;}
+		
+		.skill1 .one1{ }
+		.skill1 .two2{}
+		.skill1 .three3{}
+		.skill1 .four4{}
+		.skill1 .five5{}
+		 
+		
+		
+	</style>
+	<!--[if lte IE 8]>
+	<style type="text/css">
+		html,body{width:100%; height:100%; overflow:scroll}
+		.section-btn{display:none;}
+	</style>
+	<![endif]-->
+</head>
+<body style="background-image:url(img/bg.jpg); background-repeat:repeat;">
+	<section class="section-wrap" >
+		<div class="section section-1">
+			<div class="title active">
+				<p class="tit" style="border-radius:10px; background-color:#09F; width:100px; float:right;">余攀</p>
+          
+			</div>
+                
+                <div  style="margin:0 auto; width:960px; font-size:14px;color:#ffffff; padding-top:50px; background-color:rgba(255, 255, 255, 0.12);   font-family: Helvetica, Arial, sans-serif;">
+                
+                <div style="float:left; margin:4px 40px 0 30px;width:220px; height:290px;border: 6px solid rgba(39, 39, 39, 0.25); text-align:center; border-radius:12px;">
+                <img src="img/2.jpg" width="220" height="290" style="border-radius:12px;"></div>
+                
+                
+                <div  style=" width:700px; font-size:16px; color:#999; margin-top:-20px;"></br>
+                <p>个人简介  <img src="img/ico_new1.gif"></p></div>
+            <ul class="nav"><li> 姓名：</li><li class="li">余攀（penny）</li> </ul></br>
+           
+               <ul class="nav"><li>性别：</li><li class="li">女</li> </ul></br>
+                <ul class="nav"><li>学历：</li><li class="li">本科</li> </ul></br>
+            <ul class="nav"><li>籍贯：</li><li class="li">湖北武汉</li> </ul></br>
+             <ul class="nav"><li>出生年月：</li><li class="li">1989/9/2</li> </ul></br>
+            <ul class="nav"><li>地址：</li><li class="li">宝山区锦秋花园</li> </ul></br>
+             <ul class="nav"><li>Email：</li><li class="li">13918154493@163.com</li> </ul></br>
+            <ul class="nav"><li>Phone：</li><li class="li">13918154493</li> </ul></br></br>
+ 
+  <div>
+  
+  <div style="font-size:16px; color:#999; padding-left:300px;"><p>擅长技能</p><hr style="color:rgba(39, 39, 39, 0.25); width:600px;"></div></br>
+  <ul class="skill">
+  
+  <li class="one"><p>PS</p></li>
+  <li class="two"><p>DW</p></li>
+  <li class="three"><p>FW</p></li>
+  <li class="four"><p>HTM</p></li>
+  <li class="five"><p>AI</p></li>
+  </ul></br></br></br></br></br></div>
+  
+  
+ 
+  <div style="margin:0 30px; font-size:14px;color:#999;	">
+  <p style=" font-size:16PX; line-height:18PX;">工作经历</p><hr style="color:rgba(39, 39, 39, 0.25); "></br>
+  <p style=" color:#ccc;">2014 /9--2015 /3： 上海媒沃网络科技有限公司    <span style="">Web前端开发</span></p>
+  <p style="font-size:13px;">
+ *使用HTML 5等Web前端技术，开发WEB网站及轻应用程序；
+*制作outlook邮件html； 
+*参与微信微网站的制作； 
+*负责WEB产品前端页面制作以及动态效果实现； 
+*优化和提高客户端代码的性能； 
+*与用户体验团队协同工作，创建高性能，高可用性的UI框架；
+*为公司的项目提供创新的前端技术解决方案； 
+*对图片的修改处理，进行一般性网页设计. 
+</p></br>
+  
+  <p style=" color:#ccc;">2012 /9--2014 /7： 上海润都照明设计有限公司 <span style="">平面设计</span></p>
+    <p style="font-size:13px;">
+*主要负责景观设计方案的构思与设计，制作文本，深化效果图， 施工现场的拍照事宜，负责协助跟踪整个工程项目直到完工验收。对工作上遇见的问题及时沟通、协调予以解决。
+</p></br>
 
-    <section class="main-content">
-      <p>这是我地第一个页面</p>
+ </div>
 
-      <footer class="site-footer">
+ 
+                </div>
+                </div>
+              
+                
+               
+    
+		</div>
+		<div class="section section-2" >
+			<div class="title">
+				<p class="tit" style="border-radius:10px; background-color:#09F; width:100px; float:right;">Penny Yu</p>
+               
+               
+                
+               
+                
+                
+</div>
+                
+                <div  style="margin:0 auto; width:960px; font-size:14px;color:#ffffff; padding-top:20px; background-color:rgba(39, 39, 39, 0.25);   font-family: Helvetica, Arial, sans-serif;">
+                
+                
+                
+                
+                <div  style="  font-size:16px; color:#999; margin-top:-20px;"></br>
+                
+ 
+ 
+  
+  
+  
+ 
+  <div style="margin:0 30px; font-size:14px;color:#999;	">
+  <p style=" font-size:16PX; line-height:18PX;">教育经历</p><hr style="color:rgba(39, 39, 39, 0.25); "></br>
+  <p style=" color:#ccc;">2008 /9--2012 /6	湖北工业大学	室内设计	本科</p>
+  <p style="font-size:13px;">
+ *主要课程有：素描、色彩、立体构成、计算机辅助图形、家具设计、展厅设计、设计表现技法、景观设计等。毕业设计是一个500平方米的别墅设计。
+</p></br>
 
-        
-      </footer>
+  <p style=" font-size:16PX; line-height:18PX;">自我评价</p><hr style="color:rgba(39, 39, 39, 0.25); "></br>
+  
+  <p style="font-size:13px;">
+ *性格随和，大方稳重，热情助人。 
+有一定的文笔撰写能力，逻辑思维强。善于分析总结经验。 
+很强的学习力和执行力，适合团队合作，抗压力强。自我激励，细心负责能吃苦。 
+有协助他人完成工作的能力及独立完成的能力。 
+对一切美好的新鲜事物向往，喜爱摄影、画画，家居，擅长网页制作、视觉设计，崇尚活跃充实的工作氛围，更深层次的挖掘自己的潜能，期待在上海市从事稳定工作，我始终认为工作与生活就是一个不断学习，不断提高的过程。 
+熟练运用苹果mac系统、
+<span style="background-color:#999999; color:#000; font-weight:bold;" >photoshop</span> 
+<span style="background-color:#999999; color:#000">webstorm</span>  
+<span style="background-color:#999999; color:#000;font-weight:bold;">Dreamweaver</span>  
+<span style="background-color:#999999; color:#000">bootstrap</span>  
+<span style="background-color:#999999; color:#000;font-weight:bold;">Fireworks</span>  
+<span style="background-color:#999999; color:#000">jquery</span>  
+<span style="background-color:#999999; color:#000;font-weight:bold;">firebug</span> 环境的搭建，可在测试环境下运行pc端、手机端工作，在jsp文件中修改部分html文件样式，并上传至SVN
+</p></br>
 
-    </section>
+
+<di>
+<p style=" font-size:16PX; line-height:18PX;">作品案列
+<span style="float:right; padding-right:15px; "><a href="qita.html" style="color:#F6C;">其它</a></span>
+<span style="float:right; padding-right:15px; color:#666;"><a href="shouhui.html" style="color:#F69;"></a></span>
+<span style="float:right; padding-right:15px; color:#999;"><a href="web.html" style="color:#F39;">web</a></span>
+<span style="float:right; padding-right:15px; color:#CCC;"><a href="silikomart/index.html" style="color:#F09;">网页作品</a></span>￼￼
+</p><hr style="color:rgba(39, 39, 39, 0.25); "></br></br>
+
+<ul class="skill1" style="height:600px;">
+  
+  <li class="one1"><a href="http://www.evershinechina.com/"><img src="img/logo.jpg" style="opacity:0.4;filter:alpha(opacity=40)"
+onmouseover="this.style.opacity=1;this.filters.alpha.opacity=100"
+onmouseout="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></li>
+  <li class="two1"><a href="http://www.stmcu.com.cn/"><img src="img/logo1.png"
+  style="opacity:0.4;filter:alpha(opacity=40)"
+onmouseover="this.style.opacity=1;this.filters.alpha.opacity=100"
+onmouseout="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></li>
+  <li class="three1"><a href="http://www.dmeww.com/index.html"><img src="img/logo4.png"
+  style="opacity:0.4;filter:alpha(opacity=40)"
+onmouseover="this.style.opacity=1;this.filters.alpha.opacity=100"
+onmouseout="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></li>
+
+	<li class="four1"><a href="index2.html">
+		<img src="img/3.png" style="opacity:0.4;filter:alpha(opacity=40)"
+			 onmouseover="this.style.opacity=1;this.filters.alpha.opacity=100"
+			 onmouseout="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a>
+	</li>
+
+
+  <li class="five1"><a href="http://heguru.lixinedu.com.cn"><img src="img/logo3.png"
+  style="opacity:0.4;filter:alpha(opacity=40)"
+onmouseover="this.style.opacity=1;this.filters.alpha.opacity=100"
+onmouseout="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a>
+  </li>
+
+
+
+
+	<li class="six1"><a href="http://www.aiaworldwide.com.cn/"><img src="img/logo2.png"
+  style="opacity:0.4;filter:alpha(opacity=40)"
+onmouseover="this.style.opacity=1;this.filters.alpha.opacity=100"
+onmouseout="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></li>
+
 
   
-  </body>
-</html>
+  <li><p style="text-align:center; font-size:22px; line-height:60px; color:#fff; list-style:none;font-family: Helvetica, Arial, sans-serif;">珍惜每次机会,对用户负责,对产品负责, </br>对设计负责,从市场及专业的方向,</br>出发,服务用户 . . .</p>
 
+  </li>
+  
+  </ul>
+ 
+
+
+</div>
+
+ </div>
+ </div>
+ 
+ 
+
+
+</div>
+
+
+</div>
+
+
+		<div class="section section-3" >
+			<div class="title">
+				<div>
+					<ul class="nav">
+						<li ><img src="img/web/AIA招生简章_1.png"/ width="500px" height="2233px"></li>
+						<li><img src="img/web/aiayiji_11.png" / width="500px" height="966px"></li>
+						<li><img src="img/web/英国大学竞价页.png" / width="500px" height="1688px"></li>
+						<li><img src="img/web/aiajjym_1.png" / width="500px" height="1563px;"></li>
+						<li><img src="img/web/1.png" / width="500px" height="800px;"></li>
+
+
+
+
+						<li>
+							<ul>
+								<li><img src="img/web/2.png" / width="500px" height="370px;"></li>
+								<li><img src="img/web/3.png" / width="480px" height="377px;"></li>
+							</ul></li>
+
+						<li><ul>
+							<li><img src="img/web/4.png" / width="500px" height="700px;"></li>
+							<li><img src="img/web/5.png" / width="500px" height="700px;"></li>
+							<li><img src="img/web/6.png" / width="500px" height="700px;"></li>
+						</ul></li>
+
+						<li><ul>
+							<li><img src="img/web/03.jpg" / width="1920px" height="440px;"></li>
+							<li><img src="img/web/04.png" / width="1920px" height="440px;"></li>
+							<li><img src="img/web/01.jpg" / width="750px" height="562px;"></li>
+							<li><img src="img/web/02.jpg" / width="750px" height="562px;"></li>
+						</ul></li>
+
+
+
+
+					</ul>
+
+				</div>
+			</div></div>
+
+		<div class="section section-4" >
+			<div class="title">
+
+			</div></div>
+
+		<div class="section section-5" >
+			<div class="title">
+
+			</div></div>
+
+
+
+
+	</section>
+	<ul class="section-btn">
+	  <li class="on"></li>
+	  <li></li>
+		<!--<li>大道</li>
+		<li>大道</li>
+		<li>的</li>-->
+	</ul>
+	<div class="arrow">&laquo;</div>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	//此处引用：鼠标滚轮mousewheel插件
+	!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?module.exports=a:a(jQuery)}(function(a){function b(b){var g=b||window.event,h=i.call(arguments,1),j=0,l=0,m=0,n=0,o=0,p=0;if(b=a.event.fix(g),b.type="mousewheel","detail"in g&&(m=-1*g.detail),"wheelDelta"in g&&(m=g.wheelDelta),"wheelDeltaY"in g&&(m=g.wheelDeltaY),"wheelDeltaX"in g&&(l=-1*g.wheelDeltaX),"axis"in g&&g.axis===g.HORIZONTAL_AXIS&&(l=-1*m,m=0),j=0===m?l:m,"deltaY"in g&&(m=-1*g.deltaY,j=m),"deltaX"in g&&(l=g.deltaX,0===m&&(j=-1*l)),0!==m||0!==l){if(1===g.deltaMode){var q=a.data(this,"mousewheel-line-height");j*=q,m*=q,l*=q}else if(2===g.deltaMode){var r=a.data(this,"mousewheel-page-height");j*=r,m*=r,l*=r}if(n=Math.max(Math.abs(m),Math.abs(l)),(!f||f>n)&&(f=n,d(g,n)&&(f/=40)),d(g,n)&&(j/=40,l/=40,m/=40),j=Math[j>=1?"floor":"ceil"](j/f),l=Math[l>=1?"floor":"ceil"](l/f),m=Math[m>=1?"floor":"ceil"](m/f),k.settings.normalizeOffset&&this.getBoundingClientRect){var s=this.getBoundingClientRect();o=b.clientX-s.left,p=b.clientY-s.top}return b.deltaX=l,b.deltaY=m,b.deltaFactor=f,b.offsetX=o,b.offsetY=p,b.deltaMode=0,h.unshift(b,j,l,m),e&&clearTimeout(e),e=setTimeout(c,200),(a.event.dispatch||a.event.handle).apply(this,h)}}function c(){f=null}function d(a,b){return k.settings.adjustOldDeltas&&"mousewheel"===a.type&&b%120===0}var e,f,g=["wheel","mousewheel","DOMMouseScroll","MozMousePixelScroll"],h="onwheel"in document||document.documentMode>=9?["wheel"]:["mousewheel","DomMouseScroll","MozMousePixelScroll"],i=Array.prototype.slice;if(a.event.fixHooks)for(var j=g.length;j;)a.event.fixHooks[g[--j]]=a.event.mouseHooks;var k=a.event.special.mousewheel={version:"3.1.12",setup:function(){if(this.addEventListener)for(var c=h.length;c;)this.addEventListener(h[--c],b,!1);else this.onmousewheel=b;a.data(this,"mousewheel-line-height",k.getLineHeight(this)),a.data(this,"mousewheel-page-height",k.getPageHeight(this))},teardown:function(){if(this.removeEventListener)for(var c=h.length;c;)this.removeEventListener(h[--c],b,!1);else this.onmousewheel=null;a.removeData(this,"mousewheel-line-height"),a.removeData(this,"mousewheel-page-height")},getLineHeight:function(b){var c=a(b),d=c["offsetParent"in a.fn?"offsetParent":"parent"]();return d.length||(d=a("body")),parseInt(d.css("fontSize"),10)||parseInt(c.css("fontSize"),10)||16},getPageHeight:function(b){return a(b).height()},settings:{adjustOldDeltas:!0,normalizeOffset:!0}};a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})});
+	
+	$(function(){
+		var i=0;
+		var $btn = $('.section-btn li'),
+			$wrap = $('.section-wrap'),
+			$arrow = $('.arrow');
+		
+		/*当前页面赋值*/
+		function up(){i++;if(i==$btn.length){i=0};}
+		function down(){i--;if(i<0){i=$btn.length-1};}
+		
+		/*页面滑动*/
+		function run(){
+			$btn.eq(i).addClass('on').siblings().removeClass('on');	
+			$wrap.attr("class","section-wrap").addClass(function() { return "put-section-"+i; }).find('.section').eq(i).find('.title').addClass('active');
+		};
+		
+		/*右侧按钮点击*/
+		$btn.each(function(index) {
+			$(this).click(function(){
+				i=index;
+				run();
+			})
+		});
+		
+		/*翻页按钮点击*/
+		$arrow.one('click',go);
+		function go(){
+			up();run();	
+			setTimeout(function(){$arrow.one('click',go)},1000)
+		};
+		
+		/*响应鼠标*/
+		$wrap.one('mousewheel',mouse_);
+		function mouse_(event){
+			if(event.deltaY<0) {up()}
+			else{down()}
+			run();
+			setTimeout(function(){$wrap.one('mousewheel',mouse_)},1000)
+		};
+		
+		/*响应键盘上下键*/
+		$(document).one('keydown',k);
+		function k(event){
+			var e=event||window.event;
+			var key=e.keyCode||e.which||e.charCode;
+			switch(key)	{
+				case 38: down();run();	
+				break;
+				case 40: up();run();	
+				break;
+			};
+			setTimeout(function(){$(document).one('keydown',k)},1000);
+		}
+	});
+</script>
+
+</body>
+</html>

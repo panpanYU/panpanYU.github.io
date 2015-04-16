@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[wxd_about.pack]]></item>
+	<item id="RevisionID"><![CDATA[17657]]></item>
+	<item id="SN"><![CDATA[2014070619zh7IRXynQZ]]></item>
+	<item id="RevisionDateline"><![CDATA[1403870401]]></item>
+	<item id="Data">
+		<item id="/about/contact.html"><![CDATA[77905345cf8bb617b6c5c9dafd26bb31]]></item>
+		<item id="/about/disclaimer.html"><![CDATA[457de2dbebe76650a6b0fe90dd8af2da]]></item>
+		<item id="/about/discuz_style_zbr_about.xml"><![CDATA[f2c6923af9e4b8b8de3ac99f5aad766a]]></item>
+		<item id="/about/index.html"><![CDATA[9e8883b57e52bdb6c403f90073535649]]></item>
+		<item id="/about/job.html"><![CDATA[25c7003512b15cdf1a4ac8db69f91e0c]]></item>
+		<item id="/about/links.html"><![CDATA[53358c89909c6d3652c033b7c3f2147c]]></item>
+		<item id="/about/preview.jpg"><![CDATA[3a5fd3431387edbecdf3db50fc137634]]></item>
+		<item id="/about/preview_large.jpg"><![CDATA[e31a8d69c704b33b4f5892821de399da]]></item>
+		<item id="/about/privacy.html"><![CDATA[df8b5c0c751be390d15b4664fd70d7cf]]></item>
+		<item id="/about/style/bg-body.png"><![CDATA[c146c105f122ed5b5d03beb4fb82c533]]></item>
+		<item id="/about/style/bg-content.png"><![CDATA[7d88d9dbad1210c42304a4afa29b6032]]></item>
+		<item id="/about/style/bg-copyright.png"><![CDATA[9eefcf58bf80f949092a40c7f56a55bc]]></item>
+		<item id="/about/style/bg-header.jpg"><![CDATA[f7c25d13d4098e676eee68bdf4b81f7b]]></item>
+		<item id="/about/style/bg-nav.png"><![CDATA[8a47454d5f78cedc22279601bcf42e0f]]></item>
+		<item id="/about/style/contact.jpg"><![CDATA[9ca85b1585f0da1e3c69fdb8e2a31405]]></item>
+		<item id="/about/style/icon.png"><![CDATA[09ff33919116cbc322f5ee87701a7f4c]]></item>
+		<item id="/about/style/index-1.jpg"><![CDATA[a2635d41caef3529f40594150ae223fb]]></item>
+		<item id="/about/style/index.jpg"><![CDATA[d8cd7ecdbc41b011271854069e47052b]]></item>
+		<item id="/about/style/intro.jpg"><![CDATA[b7b62df8052f93e131c3d2ea1aac0713]]></item>
+		<item id="/about/style/job.jpg"><![CDATA[45c21ad81d62b947f7820cd6b8cb2ef3]]></item>
+		<item id="/about/style/links.jpg"><![CDATA[4926d24faa8e7dff8c400527551f2565]]></item>
+		<item id="/about/style/links_logo.gif"><![CDATA[a94048d729771fd721ac16c9c1a11eec]]></item>
+		<item id="/about/style/links_portallogo.gif"><![CDATA[ee9eac9aee46835f1295cf6dbd5ad995]]></item>
+		<item id="/about/style/logo.gif"><![CDATA[17dc3fe4092e9d2c6016e0e4739d9bfe]]></item>
+		<item id="/about/style/new_3.gif"><![CDATA[a02e46f72d076f7a1b1f96a8a7c0dbff]]></item>
+		<item id="/about/style/sub.css"><![CDATA[739ee4ad2cc0b244bb9586febd489b7d]]></item>
+		<item id="/about/style/sub_nav_focus.png"><![CDATA[0b75c104d95345eaa4db457379326f01]]></item>
+	</item>
+</root>

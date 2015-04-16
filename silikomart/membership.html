@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+<title>silikomart首页</title>
+<link type="text/css" rel="stylesheet" href="css/reset.css"/>
+<link type="text/css" rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<!--顶部
+<div class="headerBar">
+<div class="topBar">
+   <div class="comWidth">
+   <div class="leftArea"><img src="img/logo.jpg"  width=253 height=83 /></div>
+   </div>
+</div>
+</div>
+-->
+<!--top-->
+<div  style="width:100%; min-width:1000px; height:100px; position:relative; overflow:hidden;">
+    <div style="position:absolute; left:50%; margin-left:-960px; height:100px; width:1920px; overflow:hidden;">
+        <img src="img/top_bg_1.png" width="1920" height="100" />
+    </div>
+</div>
+
+<!--导航-->
+<div class="navBox">
+    <div class="comWidth">
+    <ul class="nav fl">
+    <li><a href="#.html">首页</a></li>
+    <li><a href="#.html">关于我们</a>
+    <ul id="shouye">
+    <li><a href="#.html">我们的简介</a></li>
+    <li><a href="#.html">我们的承诺</a></li>
+    <li><a href="#.html">我们的优势</a></li>
+    <li  style="border-bottom:none;"><a href="#.html">友情提示</a></li>
+    </ul>
+    </li>
+    <li><a href="#.html">产品展示</a>
+      <ul>
+      <li><a href="#.html">冰淇淋</a>
+        <ul>
+       <li>
+       <div class="nav_text">
+       <div class="one fl"><img src="img/img_1.jpg" width="180" height="180" /></div>
+       <div class="two fl">
+      </br><p>经典原味司康，松软酥脆，甘甜适口。创新融入龙眼花蜜，散发芬芳气息，再缀以清甜饱满的提子干，香甜滋味恰到好处。搭配一杯星巴克的浓缩咖啡，香甜之余感受回味无穷。</p></div>
+        </div>
+        </li>
+       </ul>
+      </li>
+         
+      <li><a href="#.html">蛋糕装饰</a></li>
+      <li><a href="#.html">多用配件</a></li>
+      <li><a href="#.html">烘&nbsp;&nbsp;焙</a></li>
+      <li><a href="#.html">酒店备餐</a></li>
+      <li style="border-bottom:none;"><a href="#.html">巧克力</a></li>
+      </ul>
+      </li>
+    <li><a href="#.html">主厨教室</a></li>
+    <li><a href="#.html">最新活动</a></li>
+    <li><a href="#.html">会员招募</a>
+    <ul id="huiyuan">
+    <li><a href="#.html">会员简介</a></li>
+    <li style="border-bottom:none;"><a href="#.html">加入我们</a></li>
+    </ul>
+    </li>
+    </ul>
+    <div class="search_box fr">
+    <input type="text" value="搜索" class="search_text" />
+    </div>
+    </div>
+</div>
+
+<div class="membership_font">
+    <form action="" metlhod="post">
+        <dl style="margin: auto">
+            <dd>
+                <p class="control_label p_margin_change">姓名</p>
+                <input id="username" class="form_control_2" type="text" placeholder="">
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">性别</p>
+                <input type="radio" name="gender" id="male">
+                <label for="male">男</label>
+                <span class="gap"></span>
+                <input type="radio" name="gender" id="female">
+                <label for="female">女</label>
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">所在城市</p>
+                <select class="form_control_4">
+                    <option value="">
+
+                    </option>
+                </select>
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">联系地址</p>
+                <input id="address" class="form_control" type="text" placeholder="">
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">工作单位</p>
+                <input class="form_control" type="text" placeholder="">
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">职位</p>
+                <select class="form_control_3">
+                    <option value="">
+                    </option>
+                </select>
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">手机</p>
+                <input class="form_control_2" type="text" placeholder="">
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">邮箱</p>
+                <input class="form_control_2" type="text" placeholder="">
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">
+                    请描述您的身份
+                </p>
+                <input type="radio" name="x" id="individuals" value="0" onclick="s(this.value)">
+                <label for="individuals">个人</label>
+                <span class="gap1"></span>
+                <input type="radio" name="x" id="company" value="1" onclick="s(this.value)">
+                <label for="company">企业</label>
+            </dd>
+            <dd id="lse">
+                <p class="control_label p_margin_change">工商营业执照</p>
+                <input type="text" id="license" class="form_control" placeholder="">
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">
+                    您是否已经开始使用我们的产品
+                </p>
+                <input type="radio" id="y" name="ask1" value="y">
+                <label for="y">
+                    是
+                </label>
+                <span class="gap"></span>
+                <input type="radio" name="ask1" value="n" id="n">
+                <label for="n">
+                    否
+                </label>
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">
+                    您通过何种方式了解到我们
+                </p>
+                <input type="radio" name="ask2" value="maganize" id="maganize">
+                <label for="maganize">
+                    报刊杂志
+                </label>
+                <span class="gap2"></span>
+                <input type="radio" name="ask2" value="TV" id="TV">
+                <label for="TV">
+                    电视广告
+                </label>
+                <span class="gap2"></span>
+                <input type="radio" name="ask2" value="recommend" id="recommend">
+                <label for="recommend">
+                    朋友推荐
+                </label>
+                <span class="gap2"></span>
+                <input type="radio" name="ask2" value="Internet" id="Internet">
+                <label for="internet">互联网</label>
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">
+                    您倾向于何种联系方式
+                </p>
+                <input type="radio" name="ask3" value="phone" id="phone">
+                <label for="phone">
+                    电话
+                </label>
+                <span class="gap1"></span>
+                <input type="radio" name="ask3" value="msg" id="msg">
+                <label for="msg">
+                    短信
+                </label>
+                <span class="gap1"></span>
+                <input type="radio" name="ask3" value="email" id="email">
+                <label for="email">
+                    邮件
+                </label>
+                <span class="gap1"></span>
+                <input type="radio" name="ask3" value="meet" id="meet">
+                <label for="meet">当面拜访</label>
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">
+                    您希望了解哪方面内容
+                </p>
+                <input type="radio" name="ask4" value="product" id="product">
+                <label for="product">
+                    产品资讯
+                </label>
+                <span class="gap2"></span>
+                <input type="radio" name="ask4" value="act" id="act">
+                <label for="act">
+                    最新活动
+                </label>
+                <span class="gap2"></span>
+                <input type="radio" name="ask4" value="food" id="food">
+                <label for="food">
+                    食品配方
+                </label>
+            </dd>
+            <dd>
+                <p class="control_label p_margin_change">意见和建议</p>
+                <textarea rows="14" cols="40"  class="form_control_5" >
+
+                </textarea>
+            </dd>
+            <dd>
+                <span class="gap3"></span>
+                <input type="submit" value="提交" class="button_control_ww">
+            </dd>
+        </dl>
+
+
+    </form>
+
+
+
+</div>
+
+
+
+<div class="foot">
+    <ul>
+        <li style="background-image:url(img/icon_1.png); background-position:left; background-repeat:no-repeat; padding-left:30px; width: 290px; float:left;">家庭专用</li>
+        <li style="background-image:url(img/icon_2.png); background-position:92px; background-repeat:no-repeat;
+ text-align: center;">我们的优势</li>
+        <li style="background-image:url(img/icon_3.png); background-position:208px;background-repeat:no-repeat;
+ text-align: right;">意大利制造</li>
+    </ul>
+</div>
+
+
+<div class="footer">
+    <div class="comWidth">
+
+        <p>SILIKOMART S.R.L, via Tagliamento, 78 - 30030 Mellaredo di Pianiga(Ve), Italy
+            P.IVA 03712840283, R.E.A 310642, CAP. SOC. 30.000,00 €
+            </br>Silikomart - tutti i diritti riservati - all rights reserved
+        </p>
+    </div>
+</div>
+
+
+
+
+</body>
+
+
+<!--点击radio隐藏与显示input-->
+
+<script type="text/javascript">
+    function s(va) {
+        if(va=="1"){
+            document.getElementById('lse').style.display='block';
+        }else if(va="0"){
+            document.getElementById('lse').style.display='none';
+        }
+    }
+
+</script>
+</html>

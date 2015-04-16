@@ -1,0 +1,126 @@
+{template header}
+<style>
+	#connect_desc { margin-top: 20px; }
+	#connect_desc .desc { background: url({IMGDIR}/connect_config_mark.png) no-repeat 2px 2px; padding-left: 40px; margin-bottom: 15px; }
+	#connect_desc .desc h3 { font-size:14px; font-weight:normal; }
+	#connect_desc .desc em { color:#999; }
+	#connect_config { border-top: 1px dotted #ccc; margin-top:20px; padding-top:10px; }
+	#connect_config .block { margin-top:10px; }
+	#connect_config .block .item { margin:4px 0; }
+	#connect_config .unbind, #connect_config .setpassword { margin-top: 15px; }
+	#connect_config .btnarea { margin-top: 10px; }
+	#connect_config .unbind .password { margin-top: 10px; }
+	#connect_config .unbind .password td{ padding: 5px; }
+</style>
+<div id="nav"><a href="$indexname">$bbname</a> &raquo; {lang qqconnect:connect_config}</div>
+<div id="wrap" class="wrap with_side s_clear">
+	<div class="main">
+		<div class="content">
+			<!--{if $_DCOOKIE[connect_is_bind]}-->
+
+			<h1>{lang qqconnect:connect_config_bindinfo}</h1>
+			<div id="connect_config">
+
+				<!--{if $connect_member[conisregister]}-->
+				<form action="connect.php?mod=config" method="post">
+				<div class="block">
+					<ul>
+						<li><a href="javascript:;" class="lightlink" onclick="display('passwd');{if $conisregister}$('newpassword1').focus();{/if}">{lang qqconnect:connect_config_newpassword}</a></li>
+					</ul>
+				</div>
+				<div id="passwd" class="unbind" style="display:none;">
+					<form action="connect.php?mod=config" method="post" autocomplete="off">
+						<div>
+							{lang qqconnect:connect_config_unbind_desc1}<br />{lang qqconnect:connect_config_unbind_desc2}
+						</div>
+						<div class="password">
+							<table class="formtable">
+								<tr>
+									<th>{lang new_password}</th>
+									<td><input type="password" size="25" name="newpassword1" id="newpassword1" value="" class="txt" onkeypress="detectCapsLock(event, this)" /> {lang qqconnect:connect_config_password_comment}</td>
+								</tr>
+								<tr>
+									<th>{lang new_password_confirm}</th>
+									<td><input type="password" size="25" name="newpassword2" id="newpassword2" value="" class="txt" onkeypress="detectCapsLock(event, this)" /></td>
+								</tr>
+							</table>
+						</div>
+						<div class="btnarea">
+							<input type="hidden" name="op" value="passwd"/>
+							<button type="submit" class="submit">{lang qqconnect:connect_setting_save}</button>
+						</div>
+					</form>
+				</div>
+				<!--{/if}-->
+
+				<div class="block">
+					<ul>
+						<li><a href="javascript:;" class="lightlink" onclick="display('unbind');{if $conisregister}$('newpassword1').focus();{/if}">{lang qqconnect:connect_config_unbind}</a></li>
+					</ul>
+				</div>
+
+				<!--{if $connect_member[conisregister]}-->
+				<div id="unbind" class="unbind" style="display:none;">
+					<form action="connect.php?mod=config" method="post" autocomplete="off">
+						<div>
+							{lang qqconnect:connect_config_unbind_desc1}<br />{lang qqconnect:connect_config_unbind_desc2}
+						</div>
+						<div class="password">
+							<table class="formtable">
+								<tr>
+									<th>{lang new_password}</th>
+									<td><input type="password" size="25" name="newpassword1" id="newpassword1" value="" class="txt" onkeypress="detectCapsLock(event, this)" /> {lang qqconnect:connect_config_password_comment}</td>
+								</tr>
+								<tr>
+									<th>{lang new_password_confirm}</th>
+									<td><input type="password" size="25" name="newpassword2" id="newpassword2" value="" class="txt" onkeypress="detectCapsLock(event, this)" /></td>
+								</tr>
+							</table>
+						</div>
+						<div class="btnarea">
+							<input type="hidden" name="op" value="unbind"/>
+							<button type="submit" class="submit">{lang qqconnect:connect_config_bind_confirm}</button>
+						</div>
+					</form>
+				</div>
+				<!--{else}-->
+				<div id="unbind" class="unbind" style="display:none;">
+					<form action="connect.php?mod=config" method="post">
+						<div>
+							{lang qqconnect:connect_config_unbind_desc3}
+						</div>
+						<div class="btnarea">
+							<input type="hidden" name="op" value="unbind"/>
+							<button type="submit" class="submit">{lang qqconnect:connect_config_bind_confirm}</button>
+						</div>
+					</form>
+				</div>
+				<!--{/if}-->
+
+			</div>
+
+			<!--{else}-->
+			<h1>{lang qqconnect:connect_config_title}</h1>
+			<div id="connect_desc">
+				<div class="desc">
+					<h3>{lang qqconnect:connect_config_desc_title1}</h3>
+					<em>{lang qqconnect:connect_config_desc_content1}</em>
+				</div>
+			</div>
+
+			<table summary="{lang qqconnect:connect_config_title}" cellpadding="0" cellspacing="0" class="formtable">
+				<tr>
+					<td>
+						<a href="{$connect_setting['login_url']}"><img src="{IMGDIR}/qq_bind.gif" align="absmiddle" style="margin-top:5px;" /></a>
+					</td>
+				</tr>
+			</table>
+
+			<!--{/if}-->
+		</div>
+	</div>
+	<div class="side">
+		{subtemplate personal_navbar}
+	</div>
+</div>
+{template footer}

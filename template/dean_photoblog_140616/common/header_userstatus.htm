@@ -1,0 +1,51 @@
+<!--{if $_G['uid']}-->
+<ul id="um">
+  <li class="vwmy{if $_G['setting']['connect']['allow'] && $_G[member][conisbind]} qq{/if}"><a href="home.php?mod=space&uid=$_G[uid]" target="_blank" title="{lang visit_my_space}">{$_G[member][username]}</a></li>
+		<!--{hook/global_usernav_extra1}-->
+<li><!--{hook/global_usernav_extra4}--><a href="home.php?mod=spacecp">{lang setup}</a></li>
+		<li><a href="home.php?mod=space&do=pm" id="pm_ntc"{if $_G[member][newpm]} class="new"{/if}>{lang pm_center}</a></li>
+<li><a href="home.php?mod=space&do=notice" id="myprompt"{if $_G[member][newprompt]} class="new"{/if} onmouseover="showMenu({'ctrlid':'myprompt'});">{lang remind}<!--{if $_G[member][newprompt]}-->($_G[member][newprompt])<!--{/if}--></a></li>
+		<!--{if empty($_G['cookie']['ignore_notice']) && ($_G[member][newpm] || $_G[member][newprompt_num][follower] || $_G[member][newprompt_num][follow] || $_G[member][newprompt])}--><script language="javascript">delayShow($('myprompt'), function() {showMenu({'ctrlid':'myprompt','duration':3})});</script><!--{/if}-->
+		<!--{if $_G['setting']['taskon'] && !empty($_G['cookie']['taskdoing_'.$_G['uid']])}--><li><a href="home.php?mod=task&item=doing" id="task_ntc" class="new">{lang task_doing}</a></li><!--{/if}-->
+		<!--{if ($_G['group']['allowmanagearticle'] || $_G['group']['allowpostarticle'] || $_G['group']['allowdiy'] || getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 6) || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3))}-->
+			<li><a href="portal.php?mod=portalcp"><!--{if $_G['setting']['portalstatus'] }-->{lang portal_manage}<!--{else}-->{lang portal_block_manage}<!--{/if}--></a></li>
+		<!--{/if}-->
+		<!--{if $_G['uid'] && $_G['group']['radminid'] > 1}-->
+			<li><a href="forum.php?mod=modcp&fid=$_G[fid]" target="_blank">{lang forum_manager}</a></li>
+		<!--{/if}-->
+		<!--{if $_G['uid'] && $_G['adminid'] == 1 && $_G['setting']['cloud_status']}-->
+			<li><a href="admin.php?frames=yes&action=cloud&operation=applist" target="_blank">{lang cloudcp}</a></li>
+		<!--{/if}-->
+		<!--{if $_G['uid'] && getstatus($_G['member']['allowadmincp'], 1)}-->
+			<li><a href="admin.php" target="_blank">{lang admincp}</a></li>
+		<!--{/if}-->
+
+		<!--{hook/global_usernav_extra2}-->
+		<li><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a></li>
+		<!--{hook/global_usernav_extra3}-->
+		<li><a href="home.php?mod=spacecp&ac=credit&showcredit=1" id="extcreditmenu"{if !$_G[setting][bbclosed]} onmouseover="delayShow(this, showCreditmenu);" class="showmenu"{/if}>{lang credits}: $_G[member][credits]</a></li>
+		<li><a href="home.php?mod=spacecp&ac=usergroup" id="g_upmine" class="showmenu" onmouseover="delayShow(this, showUpgradeinfo)">{lang usergroup}: $_G[group][grouptitle]</a></li>
+<!--{elseif !empty($_G['cookie']['loginuser'])}-->
+
+	<li><a id="loginuser" class="noborder"><!--{echo dhtmlspecialchars($_G['cookie']['loginuser'])}--></a></li>
+	<li><a href="member.php?mod=logging&action=login" onclick="showWindow('login', this.href)">{lang activation}</a></li>
+	<li><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a></li>
+
+</ul>
+<!--{elseif !$_G[connectguest]}-->
+	<ul class="deanum">
+    	 <li><a href="member.php?mod=logging&action=login" onClick="showWindow('login', this.href)" >µÇÂ½</a></li>
+         <li><a href="connect.php?mod=login&op=init&referer=index.php&statfrom=login_simple"  title="QQµÇÂ¼">ÓÃQQµÇÂ½</a></li>
+         <li><a href="member.php?mod=register" >×¢²á</a></li>
+         <li><a href="member.php?mod=logging&action=login&viewlostpw" onClick="showWindow('login', this.href)" title="ÕÒ»ØÃÜÂë">ÕÒ»ØÃÜÂë</a></li>
+    </ul>
+<!--{else}-->
+<ul id="um">
+	<div class="avt y"><!--{avatar(0,small)}--></div>
+    <li class="vwmy qq">{$_G[member][username]}</li>
+    <!--{hook/global_usernav_extra1}-->
+    <li><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a></li>
+    <li><a href="home.php?mod=spacecp&ac=credit&showcredit=1">{lang credits}: 0</a></li>
+    <li>{lang usergroup}: $_G[group][grouptitle]</li>
+</ul>
+<!--{/if}-->

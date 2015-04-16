@@ -1,0 +1,7 @@
+#connect_share_btn{ line-height: 24px;padding-bottom: 10px; height:24px;}
+#connect_share_btn a { float: left; margin-right: 3px; vertical-align: top; white-space: nowrap; }
+#connect_share_btn a:hover { text-decoration: none; }
+#connect_share_btn i { display: block; padding-right: 8px; font-style: normal; cursor: pointer; }
+#connect_share_btn img { float: left; margin: 0 3px 0 0; }
+#connect_share_btn span { padding-left: 2px; color: {LIGHTTEXT}; }
+#connect_share_btn strong { float: left; margin-right: 10px; }

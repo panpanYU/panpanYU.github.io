@@ -1,0 +1,228 @@
+/* ----------------------------------
+
+Main CSS file for metro.
+http://www.mobanbus.cn.
+Created by 模板巴士.
+
+-------------------------------------*/
+
+
+/* 总体样式
+----------------------------------------------------------------------------------------------------*/
+body, input, button, select, textarea { font: 12px/1.5 "microsoft yahei"; color: rgb(105, 105, 105);}
+.mobanbus, .wp { display:block; width:1200px;margin:0 auto!important;}
+.clear {clear: both;content: " ";display: block;height: 0px;}
+.block{ display:block}
+.tbmu { padding: 10px}
+.a_mu { width: 1200px; margin: 20px auto 0 auto; box-shadow: 0px 0px 2px rgba(207, 207, 207, 0.8); background: #FFFFFF}/* 二级导航广告位 */
+#chart { overflow: hidden; margin: 0; padding: 0}
+#pgbtn.pgbtn { display: none}
+.ie6 #ip_notice.focus.plugin { display: none}
+.ie6 #chart { overflow: hidden; margin: 0; padding: 0}
+a { text-decoration: none}
+a:hover, .mobanbus a:hover { text-decoration: none; color:#F28A02 }
+a, a:hover {transition: all 0.3s ease 0s}
+.xi2, .xi2 a, .xi3 a {color:#{HIGHLIGHTLINK}}
+.tbn li { border-bottom: 1px solid rgb(238, 238, 238) !important}
+.freeside { border: 0; margin: 0; padding: 0; background: none}
+.freesidetop { padding:0; margin: 15px 0 10px 0 !important; border: 0; background: none}
+.freesidetop2{ border:0; padding:0; margin: 15px 0 0 -8px !important; background: none}
+.mbt { margin: 15px 0 !important; padding: 0; border: 0; background: none}
+.ad980 { width: 980px; height: 90px; overflow: hidden; padding: 0; margin: 20px 0 !important; padding: 0; border: 0; background: none}
+.pluseImage:hover img { transform: scale(1.08, 1.08)}
+.transitionAll { transition: all 0.3s ease 0s}
+#postlist.pl.bm {}
+#f_pst.pl.bm.bmw { border: 3px solid #F0F4F8}
+#f_pst .plc { padding: 20px !important}
+.sitecontainer { width: 980px; height: auto}
+#fwin_showblock.fwinmask { z-index: 999 !important}
+#pt { height: 32px !important; line-height: 32px !important; padding: 10px 0 !important}
+#pt .z a, #pt .z span { height:16px; line-height: 32px}
+#pt .z em { text-indent: -9999px; background-position: 3px 11px}
+#pt .z { height: 32px; line-height: 32px}
+a.nvhm { line-height: 80px !important}
+#commentsubmit_btn strong { color: #FFFFFF}
+.nvhm { width:16px; height:16px; margin:8px 0; background: url({STYLEIMGDIR}/pt.png) no-repeat left top}
+.px, .pt, .ps, select {padding: 4px;line-height: 18px;border: 1px solid rgb(204, 204, 204);background-color: white;box-shadow: 2px 2px 2px rgb(240, 240, 240) inset;vertical-align: middle;margin: 0px;font-family: inherit;color: rgb(51, 51, 51);}
+.card_mn { background: #FFFFFF}
+img:honver{opacity: 0.8}
+.bus_w100{ width:100%}
+.bus_fl{ float:left!important}
+.bus_fr{ float:right!important}
+.bus_hide{ display:none!important;}
+.bus_box{}
+.mt10{ margin-top:10px!important;}
+.mt15{ margin-top:15px!important;}
+.mt20{ margin-top:20px!important;}
+.mb20{ margin-bottom:20px!important;}
+.pr20{ padding-right:20px!important;}
+.pl10{ padding-left:10px!important;}
+.pt10{ padding-top:10px!important;}
+.pt20{ padding-top:20px!important;}
+.pb20{ padding-bottom:20px!important;}
+.pb10{ padding-bottom:10px!important;}
+.bus_relative{ position:relative;}
+.tedt{ border:none}
+.tedt .pt{box-shadow: 2px 2px 2px #F0F0F0 inset;border:1px solid #CCC;}
+.tedt .bar{ background:none}
+.mobanbus_border{ border:1px solid #ddd}
+.mobanbus_radius{ border-radius:5px}
+.p_pop a{ border-bottom:1px solid #ddd}
+
+/* 顶部导航 */
+#headtop { height:60px; line-height:60px; position:fixed; border-bottom:2px  solid #ddd; margin: 0 auto; width: 100%; z-index:9998;background:url({STYLEIMGDIR}/logo-bg.png) no-repeat rgba(44, 62, 80, 0.9)}
+.ie6 #headtop { overflow: hidden}
+#switchblind { display: none}
+#diy-tg { margin-top: 3px}
+#toptb #diy-tg_menu { margin-top: -10px; margin-left: -8px}
+.headerbox { width: auto; height: 120px; border: 0; padding-top: 50px; _padding-top: 0; border-bottom: 1px solid rgb(236, 236, 236); background: #FFFFFF}
+#menu-main-nav-menu.sf-menu.sf-js-enabled.sf-shadow { width:630px; height: 60px; line-height: 60px; padding-left:20px; _position: relative; overflow: hidden; background: none}
+#nv_search .y { margin-right: 30px}
+#nv_search .searchform { margin-top: 30px}
+#nv_search #toptb { position: relative}
+.nav_box { float: left; height:60px; background: none;}
+#header_user { height: 60px; line-height: 60px;float: right}
+#header_nav .username { float: left; display: block; padding: 0 10px; width: 25px; height: 60px; line-height: 30px; display: block; margin-top: 0}
+#header_nav .username img { width:30px; height:30px; border-radius: 50%; margin-top:15px}
+#header_nav span { float: left; height: 60px; line-height: 60px;}
+#header_nav span a{ color:#fff}
+.avatarimg:hover {  color: #333333 !important;}
+#header_nav span:hover a { color: #fff !important}
+#header_nav span a { font-size: 12px; height: 60px; line-height: 60px;font-family: "Microsoft Yahei"; padding: 0 10px}
+#um .new, .topnav .new, .sch .new, #toptb .new { font-weight: 400}
+#pm_ntc.new { background-repeat: no-repeat; background-position: 5px 3px; padding-left: 28px}
+#myprompt.new { background-repeat: no-repeat; background-position: 5px 3px; padding-left: 20px}
+#toptb #pm_ntc.new, #toptb #myprompt.new { background-position: 5px 8px}
+#umnav_menu { margin-left: -52px; margin-top: 0; top: 60x !important; border-top: 0 !important}
+#umnav_menu li a { float: none !important; width: 63px; height: 15px !important; line-height: 15px; padding: 7px 20px; border-bottom: 0}
+#umnav_menu li span.pipe { display: none}
+#umnav_menu li .qq_bind { margin-left: -18px}
+#umnav_menu li a:hover { color: #FFFFFF !important; border-bottom: 0; background: #FA791D}
+.login_list {float: right;position: relative;overflow: hidden}
+.login_block {display: block;padding: 0px 10px;height: 42px;line-height: 42px;color: rgb(204, 204, 204)}
+a.login_block { height: 60px !important; line-height: 60px; padding: 0 8px !important; color: #fff !important}
+.login_block:hover { background: #34495E; color: rgb(51, 51, 51)}
+a.login_block:hover { color:#fff !important}
+.login_block i, .usernav li .png i, .userinfo .arrow, .login_list .i_qq, .login_list .i_wb, .nav_icon {display: block;background: url({STYLEIMGDIR}/icon.png) no-repeat 0 0}
+.login_list .i_qq, .login_list .i_wb {width: 30px;height: 29px;margin:15px 0 0 0;text-indent: -9999px;cursor: pointer}
+.login_list .i_qq { margin-left: 5px; background-position: -145px 0}
+.login_list .i_wb {background-position: -110px 0;margin-right: 0}
+.login_list a:hover .i_qq {background-position: -217px 0}
+.login_list a:hover .i_wb {background-position: -183px 0}
+.m_l, .m_r, .t_l, .t_c, .t_r, .b_c, .b_l, .b_r {display: none;}
+.m_c .flb em {color: rgb(76, 76, 76);text-shadow: 0px 1px 1px rgb(255, 255, 255);}
+.m_c .flb {line-height: 18px;padding: 9px 9px 8px 15px;border-top: 1px solid rgb(255, 255, 255); border-bottom: 1px solid rgb(229, 229, 229); background: none repeat scroll 0% 0% rgb(247, 247, 247);margin-bottom: 10px;}
+.m_c {box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);border: 1px solid rgb(221, 221, 221)}
+.rfm a {color: rgb(49, 132, 219);}
+.rfm .px:focus {border-color: rgb(49, 132, 219);background: none repeat scroll 0% 0% rgb(255, 255, 255);}
+
+/*导航*/
+.bodycontainer { width: auto; margin: 0 auto; padding: 60px 0 0 0; _padding: 0}
+.bodycontainer:after { content: " "; display: block; height: 0px; clear: both; visibility: hidden; }
+.bodycontainer.navcontainer { z-index: 10}
+.logo { float: left; width: 155px; height:60px; margin-top: 0; position: relative; overflow: hidden;}
+.logo h1 { margin: 0}
+input:focus { outline: medium none; }
+input[type="text"], textarea { border-style: solid; border-width: 1px; border-color: rgb(220, 220, 220); font-size: 12px; }
+input[type="text"], textarea, #commentsubmit input[type="text"], #commentsubmit textarea, .contactsubmit input[type="text"], .contactsubmit textarea, .contactsubmit select, select#top_nav_menu { background: rgb(255, 255, 255); color: rgb(85, 85, 85); border-color: rgb(227, 227, 227); }
+input#s { padding: 10px; border-style: solid; border-width: 1px; border-color: rgb(220, 220, 220); width: 92%; max-width: 300px; margin: 0; border-radius: 0}
+.nav .search { float: right; margin-right: 10px; margin-top: 10px}
+.nav .search input#s { background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(85, 85, 85); border: medium none; float: right}
+.sf-menu, .sf-menu * { margin: 0px; padding: 0px; list-style: none outside none}
+.sf-menu { line-height: 1; float: left}
+.sf-menu ul { position: absolute; top: -999em; width: 8.8em}
+.sf-menu ul li { width: 100%}
+.sf-menu li:hover { visibility: inherit}
+.sf-menu li { float: left; position: relative; margin-right: 0; border: 0}
+.sf-menu li li { margin-right: 15px}
+.sf-menu a { display: block; position: relative; text-decoration: none; line-height: 27px; _height:30px; _float:left; min-width: 1px; z-index: 11}
+.sf-menu li { background: none repeat scroll 0% 0% transparent}
+.sf-menu li a { text-align: center;padding: 0 15px!important; color: #fff !important; height: 60px !important; line-height: 60px; font-size: 13px; font-family: "Microsoft Yahei"; font-weight: 400}
+.ie6 .sf-menu li a { padding: 0 6px; margin: 0 6px; height: 60px !important; line-height: 60px !important}
+.sf-menu li.active a {font-weight: bold;background-color:rgba(53, 74, 95, 0.7)}
+.sf-menu li a:hover, .sf-menu li.sfHover a {background-color:rgba(53, 74, 95, 0.7)}
+.sf-menu li.hover a { color: #FFFFFF;}
+.sf-menu li li a, .sf-menu li li a:visited, .sf-menu li.sfHover li a { font-size: 12px; line-height: 18px; background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(51, 51, 51) ! important; border-bottom: 1px dotted rgb(220, 220, 220); font-weight: normal; }
+.sf-menu li li:last-child a, .sf-menu li li:last-child a:visited { border-bottom: medium none; }
+.sf-menu ul li li a { border-left: 1px dotted rgb(220, 220, 220); }
+.sf-menu li li { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+.sf-menu li li li { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+.sf-menu li li:hover, .sf-menu li li.sfHover, .sf-menu li li a:focus, .sf-menu li li a:hover, .sf-menu li li a:active { background: none repeat scroll 0% 0% rgb(243, 243, 243); outline: 0px none; }
+.sf-menu a.sf-with-ul { padding-right: 28px; min-width: 1px; }
+.sf-sub-indicator { position: absolute; display: block; right: 0.75em; top: 1.05em; width: 10px; height: 10px; text-indent: -999em; overflow: hidden; background: url({STYLEIMGDIR}/navarrows-dark.png) no-repeat scroll -10px -100px transparent}
+.sf-menu li ul, .sf-menu li li ul { box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.35)}
+.sf-menu a { color: #FFFFFF; transition: none; -webkit-transition: none; -moz-transition: none; transition: background-color 0.3s linear; -moz-transition: background-color 0.3s linear; -webkit-transition: background-color 0.3s linear; -o-transition: background-color 0.3s linear}
+.sf-menu li:last-child a { background-image: none; }
+.pop_moremenu li{ padding:5px 10px}
+
+/*搜索*/
+#scbar { width:180px; margin:17px 0 0 20px; float:right; height: 25px; line-height: 25px; border:none!important; overflow: visible; border-radius: 5px; background:#fff}
+#scbar_txt {border:0; height: 23px; line-height: 23px; _line-height: 25px; width:100px!important; _width: 90px; padding: 0 5px;font-size: 12px; transition: all 0.3s ease-in-out 0s; overflow: hidden; text-overflow: ellipsis; background: none}
+.ie7 #scbar_txt { width: 100px}
+#scbar_type { display: block; padding-left: 10px; text-align: left; text-decoration: none}
+.scbar_type_td #scbar_type { width:40px; border: 0; background: none}
+#scbar.longer .scbar_type_td #scbar_type { transition: all 0.3s ease-in-out 0s}
+.scbar_txt_td { border: medium none}
+.scbar_txt_td, .scbar_type_td { background: none repeat scroll 0% 0% transparent}
+.scbar_type_td { _position: relative; width: 40px; _width: 35px; overflow: hidden}
+#scbar_type.xg1 { height: 23px !important; line-height: 23px; _line-height: 25px}
+.scbar_btn_td {width:20px;height: 20px; border-radius:0 3px 3px 0;padding:2px 0 3px 5px; background: url({STYLEIMGDIR}/connect-icons.png) no-repeat 1px 1px #2C7E8D; display: block; overflow:hidden;}
+#scbar_btn {width:20px;height: 20px; margin: 0; padding: 0; border: medium none ;background:none; box-shadow: none}
+#scbar_type { color: #999999}
+#scbar_type_menu { top: 50px !important; _width: 60px}
+#scbar_type_menu li a { padding: 8px 10px; height: 10px; line-height: 10px !important; border-bottom:1px solid #ddd;}
+
+
+
+/*DIY*/
+.frame, .frame-tab { background: none; border: none; padding: 0; margin: 0}
+.block { margin: 0}
+.temp { margin: 0}
+
+
+/*下拉菜单*/
+.p_pop, .p_pof, .sllt { border: 1px solid #EEEEEE;background:rgba(255, 255, 255, 0.9);box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); padding: 0}
+.h_pop {padding:0;border: 1px solid #DDD;min-width:100px;background:#FEFEFE;box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.1);}
+.h_pop a {display: block;padding: 3px 5px;border-bottom: 1px solid #E5EDF2;white-space: nowrap;}
+.h_pop a:hover {background:#ededed}
+.bui a, .bui a:hover { padding: 0; border: none; background: none}
+#nv_search .h_pop { top: 28px !important}
+
+/* 分页按钮 */
+.pgbtn { margin: 5px 0 10px; }
+.pgbtn a { display: block; height: 40px; line-height: 40px; letter-spacing: 5px; text-align: center; border: 1px solid #DCDCDC; background: #F5F5F5 url({STYLEIMGDIR}/bg_pgbtn.png) repeat-x 0 0; font-size: 14px; outline: none; border-radius: 5px; box-shadow: 0 1px 0 #F5F5F5; }
+.pgbtn a:hover { border-color: #BABABA; text-decoration: none; }
+.pgbtn a:active { background: #EEE; border-color: #D0D0D0; box-shadow: none}
+.pg { padding-right:15px; height:35px; float: right;}
+.pg a, .pgb a, .pg label, .pg strong {border-radius:5px; margin-left: 5px!important; }
+#pgt .pg, #pgt .pgb { margin-top:0;}
+.pg a, .pg strong, .pgb a, .pg label { border: none; margin-left: 0}
+.pg strong { background-color:#2C7E8D !important; color: white; display: block; float: left; padding: 1px 10px; margin-left: 5px; font-weight: normal}
+.pg a, .pgb a, .pg label { display: block; float: left; background-color: #EEEEEE; padding: 1px 10px; margin-left: 5px; color: #333333}
+.pg a.nxt { float: left; background-image: none; display: block}
+.pg label { display: none}
+.pg a:hover, .pgb a:hover { color: white; background-color: #2C7E8D; border: none}
+.pg a.prev { background-repeat: no-repeat}
+.pgb a { padding-left: 25px}
+#autopbn { display: none !important}
+
+/* 登陆框 */
+form .rfm { margin-left:0;}
+form .rfm .rq { display:none;}
+form .rfm th, .rfm td { height:32px; line-height:32px;}
+form .rfm .p_chk, .rfm .p_tip { height:30px; line-height:30px;}
+form .rfm th { text-align:left; width:5em; font-size:14px; }
+form .rfm .pn { height:30px; line-height:30px;}
+form .rfm .pn em, .rfm .pn span, .rfm .pn strong { padding:0 20px;}
+form .rfm .px, .rfm .pt { padding:8px 5px;}
+form .rfm .px, .rfm .pt, .ps, .rfm select { border:1px solid #E3E3E3; background:none; }
+form .rfm #reginfo_a_btn em { display:none;}
+form .rfm .ps, .rfm select {margin-left: 0;padding: 6px;}
+#fwin_login  .m_c{ background:#fff url({STYLEIMGDIR}/m2.png) no-repeat 285px 100px;}
+
+/* 返回顶部样式 */
+#scrolltop { border: 1px solid #DDDDDD !important; border-top: 0 !important}
+.ie6 #scrolltop { margin-left: 990px}
+#scrolltop a { border-top: 1px solid #DDDDDD !important}
+
+.tl .bm_c{ padding:0px;}

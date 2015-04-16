@@ -1,0 +1,74 @@
+/* $Id */
+* {
+	margin: 0;
+	padding:0;
+}
+.search_form_wrapper {
+	background: url(api_form_bg_left.gif) no-repeat 0 3px;
+}
+#search_form {
+	padding-left: 8px;
+	background: url(api_form_bg_right.gif) no-repeat right center;
+	padding-right: 3px;
+}
+#search_form_inner {
+	background: url(api_form_bg_center.gif) repeat-x center;
+	height: 46px;
+}
+#search_form p {
+	float: left;
+}
+#search_form_q {
+	height: 25px;
+	background: url(api_form_search.gif) no-repeat left center;
+	padding: 2px 75px 0 35px; /* 搜索图片按钮宽度 */
+	position: relative;
+	margin-top: 10px;
+}
+input.image {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+input.text {
+	font-size: 0.9em;
+	width: 250px;
+}
+#hotWords {
+	margin-left: 1em;
+	margin-top: 13px;
+	font-size: 0.8em;
+}
+#hotWords a {
+	margin-left: 5px;
+}
+
+/*
+ * 迷你版
+ */
+.mode-mini .search_form_wrapper, .mode-mini #search_form, .mode-mini #search_form_inner {
+	background: none;
+	padding: 0;
+}
+.mode-mini #search_form_inner {
+	height: 30px;
+}
+.mode-mini #search_form_q {
+	background: none;
+	margin-top: 0;
+	padding-left: 5px;
+	padding-right: 0;
+}
+.mode-mini input.text{
+	font-size: 0.96em;
+	width: 180px;
+}
+.mode-mini input.image {
+	right: 2px;
+	top: 4px;
+	top: 5px;
+	border-left: 1px solid #ccc;
+	padding-left: 5px;
+	padding-right: 5px;
+	display: block;
+}
